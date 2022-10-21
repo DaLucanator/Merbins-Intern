@@ -55,33 +55,36 @@ public class BaseDefenseExplosion : MonoBehaviour
             List<GameObject> enemies = new List<GameObject>();
             foreach (Collider hit in colliders2)
             {
-                if(hit.GetComponent<BaseDefenseEnemy>() != null)
+                if(hit.GetComponent<BaseDefenseEnemy>())
                 {
-                    enemies.Add(hit.gameObject);
+                    if(hit.gameObject.GetComponent<BaseDefenseEnemy>().CheckifCanBeStruck())
+                    {
+                        enemies.Add(hit.gameObject);
+                    }
                 }
             }
 
-            Transform objectToHit = colliders2[Random.Range(0, enemies.Count)].transform;
+            if(enemies.Count > 0)
+            {
+                Transform objectToHit = colliders2[Random.Range(0, enemies.Count)].transform;
 
-            Debug.Log(objectToHit.ToString());
-            Debug.Log(objectToHit.transform.position.ToString());
+                GameObject newExplosionObject = Instantiate(explosionObject, objectToHit.position, Quaternion.identity);
+                BaseDefenseExplosion explosion = newExplosionObject.GetComponent<BaseDefenseExplosion>();
 
-            GameObject newExplosionObject = Instantiate(explosionObject, objectToHit.position, Quaternion.identity);
-            BaseDefenseExplosion explosion = newExplosionObject.GetComponent<BaseDefenseExplosion>();
+                explosion.SetExplosionForce(explosionForce);
+                explosion.SetExplosionForceUp(explosionForceUp);
+                explosion.SetExplosionRadius(explosionRadius);
+                explosion.SetExplosionDamage(explosionDamage);
+                explosion.SetExplosionObject(explosionObject);
 
-            explosion.SetExplosionForce(explosionForce);
-            explosion.SetExplosionForceUp(explosionForceUp);
-            explosion.SetExplosionRadius(explosionRadius);
-            explosion.SetExplosionDamage(explosionDamage);
-            explosion.SetExplosionObject(explosionObject);
+                explosion.SetLightningScale(lightningScale);
+                explosion.SetlightningStrikeDistance(lightningStrikeDistance);
 
-            explosion.SetLightningScale(lightningScale);
-            explosion.SetlightningStrikeDistance(lightningStrikeDistance);
+                explosion.SetCrystalScale(crystalScale);
+                explosion.SetCrystalObject(crystalObject);
 
-            explosion.SetCrystalScale(crystalScale);
-            explosion.SetCrystalObject(crystalObject);
-
-            explosion.Explode();
+                explosion.Explode();
+            }
         }
     }
 

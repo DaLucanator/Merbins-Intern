@@ -35,10 +35,10 @@ public class BaseDefencePotion : MonoBehaviour
         float modifier = lightningScale + 1f;
         float modifier2 = lightningScale + crystalScale + fearScale + portalScale;
 
-        explosion.SetExplosionForce((explosionForce + (explosionForce * modifier2 * 0.1f)) / modifier);
-        explosion.SetExplosionForceUp((explosionForceUp + (explosionForceUp * modifier2 * 0.1f)) / modifier);
-        explosion.SetExplosionRadius((explosionRadius + (explosionRadius * modifier2 * 0.1f)) / modifier);
-        explosion.SetExplosionDamage((explosionDamage + (explosionDamage * modifier2 * 0.1f)) / modifier);
+        explosion.SetExplosionForce((explosionForce * modifier2) / modifier);
+        explosion.SetExplosionForceUp((explosionForceUp * modifier2) / modifier);
+        explosion.SetExplosionRadius((explosionRadius * modifier2) / modifier);
+        explosion.SetExplosionDamage((explosionDamage * modifier2) / modifier);
         explosion.SetExplosionObject(explosionObject);
 
         explosion.SetLightningScale(lightningScale -1f);

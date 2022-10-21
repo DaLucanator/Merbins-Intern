@@ -161,9 +161,9 @@ MonoBehaviour:
   explosionRadius: 10
   explosionDamage: 1
   explosionObject: {fileID: 4937704902572006584, guid: 5fd34bf396b5f3c4ba2d7c743a4c6e13, type: 3}
-  lightningScale: 10
+  lightningScale: 5
   lightningStrikeDistance: 1000
-  crystalScale: 10
+  crystalScale: 1
   crystalObject: {fileID: 4618665039753967531, guid: a4e88d8d9e5af3544990bc3ef6d8d14c, type: 3}
   fearScale: 0
   portalScale: 0

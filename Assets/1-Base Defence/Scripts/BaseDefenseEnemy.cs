@@ -5,11 +5,30 @@ using UnityEngine;
 public class BaseDefenseEnemy : MonoBehaviour
 {
     [SerializeField] private float health;
+    private bool canBeStruckByLightning = true;
 
     public void TakeDamage(float damage)
     {
         health -= damage;
     }
+
+    public void LightningStrike()
+    {
+        canBeStruckByLightning = false;
+        StartCoroutine(LightningStrikeTimer());
+    }
+
+    public bool CheckifCanBeStruck()
+    {
+        return canBeStruckByLightning;
+    }
+
+    private IEnumerator LightningStrikeTimer()
+    {
+        yield return new WaitForSeconds(1f);
+        canBeStruckByLightning = true;
+    }
+
 
     void DrawLine(Vector3 start, Vector3 end, Color color, float duration, float lineWidth)
     {
