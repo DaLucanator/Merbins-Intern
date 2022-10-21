@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class BaseDefenseCrystal : MonoBehaviour
 {
-    public void SetCrystaLScale()
-    {
+    [SerializeField] private float health = 5f; 
 
+    public void SetCrystaLScale(float num)
+    {
+        gameObject.transform.localScale *= num;
+        health *= num;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
     }
 }

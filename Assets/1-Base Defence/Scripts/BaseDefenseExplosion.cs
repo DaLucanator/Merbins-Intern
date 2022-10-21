@@ -36,17 +36,38 @@ public class BaseDefenseExplosion : MonoBehaviour
         //Spawn Crystal
         if (crystalScale > 0f)
         {
+            Debug.Log(transform.position.ToString());
             GameObject newCrystal = Instantiate(crystalObject, transform.position, Quaternion.identity);
+            BaseDefenseCrystal crystal = newCrystal.GetComponent<BaseDefenseCrystal>();
+            crystal.SetCrystaLScale(crystalScale);
         }
 
         //lightning Strike
         if (lightningScale > 0f)
         {
+            Debug.Log("kerchoo");
+
             lightningScale -= 1f;
+
+            StartCoroutine(WaitForLightning());
+
             Collider[] colliders2 = Physics.OverlapSphere(transform.position, lightningStrikeDistance);
-            Transform objectToHit = colliders2[Random.Range(0, colliders2.Length)].transform;
-            Instantiate(explosionObject, objectToHit.position, Quaternion.identity);
-            BaseDefenseExplosion explosion = explosionObject.GetComponent<BaseDefenseExplosion>();
+            List<GameObject> enemies = new List<GameObject>();
+            foreach (Collider hit in colliders2)
+            {
+                if(hit.GetComponent<BaseDefenseEnemy>() != null)
+                {
+                    enemies.Add(hit.gameObject);
+                }
+            }
+
+            Transform objectToHit = colliders2[Random.Range(0, enemies.Count)].transform;
+
+            Debug.Log(objectToHit.ToString());
+            Debug.Log(objectToHit.transform.position.ToString());
+
+            GameObject newExplosionObject = Instantiate(explosionObject, objectToHit.position, Quaternion.identity);
+            BaseDefenseExplosion explosion = newExplosionObject.GetComponent<BaseDefenseExplosion>();
 
             explosion.SetExplosionForce(explosionForce);
             explosion.SetExplosionForceUp(explosionForceUp);
@@ -59,9 +80,14 @@ public class BaseDefenseExplosion : MonoBehaviour
 
             explosion.SetCrystalScale(crystalScale);
             explosion.SetCrystalObject(crystalObject);
-        }
 
-        Destroy(gameObject);
+            explosion.Explode();
+        }
+    }
+
+    IEnumerator WaitForLightning()
+    {
+        yield return new WaitForSeconds(0.2f);
     }
 
     public void SetExplosionForce(float num)
