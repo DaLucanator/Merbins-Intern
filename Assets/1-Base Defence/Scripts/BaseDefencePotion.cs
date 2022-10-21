@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
 
-public class BaseDefensePotion : MonoBehaviour
+public class BaseDefencePotion : MonoBehaviour
 {
     [SerializeField] private float explosionForce, explosionForceUp, explosionRadius, explosionDamage;
     [SerializeField] private GameObject explosionObject;
@@ -24,7 +23,7 @@ public class BaseDefensePotion : MonoBehaviour
     {
         if (potionIsActive)
         {
-            
+            SpawnExplosion();
         }
     }
 
@@ -42,13 +41,15 @@ public class BaseDefensePotion : MonoBehaviour
         explosion.SetExplosionDamage((explosionDamage * modifier2) / modifier);
         explosion.SetExplosionObject(explosionObject);
 
-        explosion.SetLightningScale(lightningScale);
+        explosion.SetLightningScale(lightningScale -1f);
         explosion.SetlightningStrikeDistance(lightningStrikeDistance);
 
         explosion.SetCrystalScale(crystalScale / modifier);
         explosion.SetCrystalObject(crystalObject);
 
         explosion.Explode();
+
+        Destroy(gameObject);
     }
 
     void ActivatePotion()

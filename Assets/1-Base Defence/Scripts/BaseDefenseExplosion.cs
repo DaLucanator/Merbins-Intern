@@ -36,32 +36,61 @@ public class BaseDefenseExplosion : MonoBehaviour
         //Spawn Crystal
         if (crystalScale > 0f)
         {
+            Debug.Log(transform.position.ToString());
             GameObject newCrystal = Instantiate(crystalObject, transform.position, Quaternion.identity);
+            BaseDefenseCrystal crystal = newCrystal.GetComponent<BaseDefenseCrystal>();
+            crystal.SetCrystaLScale(crystalScale);
         }
 
         //lightning Strike
         if (lightningScale > 0f)
         {
+            Debug.Log("kerchoo");
+
             lightningScale -= 1f;
+
+            StartCoroutine(WaitForLightning());
+
             Collider[] colliders2 = Physics.OverlapSphere(transform.position, lightningStrikeDistance);
-            Transform objectToHit = colliders2[Random.Range(0, colliders2.Length)].transform;
-            Instantiate(explosionObject, objectToHit.position, Quaternion.identity);
-            BaseDefenseExplosion explosion = explosionObject.GetComponent<BaseDefenseExplosion>();
+            List<GameObject> enemies = new List<GameObject>();
+            foreach (Collider hit in colliders2)
+            {
+                if(hit.GetComponent<BaseDefenseEnemy>())
+                {
+                    if(hit.gameObject.GetComponent<BaseDefenseEnemy>().CheckifCanBeStruck())
+                    {
+                        enemies.Add(hit.gameObject);
+                    }
+                }
+            }
 
-            explosion.SetExplosionForce(explosionForce);
-            explosion.SetExplosionForceUp(explosionForceUp);
-            explosion.SetExplosionRadius(explosionRadius);
-            explosion.SetExplosionDamage(explosionDamage);
-            explosion.SetExplosionObject(explosionObject);
+            if(enemies.Count > 0)
+            {
+                Transform objectToHit = colliders2[Random.Range(0, enemies.Count)].transform;
 
-            explosion.SetLightningScale(lightningScale);
-            explosion.SetlightningStrikeDistance(lightningStrikeDistance);
+                GameObject newExplosionObject = Instantiate(explosionObject, objectToHit.position, Quaternion.identity);
+                BaseDefenseExplosion explosion = newExplosionObject.GetComponent<BaseDefenseExplosion>();
 
-            explosion.SetCrystalScale(crystalScale);
-            explosion.SetCrystalObject(crystalObject);
+                explosion.SetExplosionForce(explosionForce);
+                explosion.SetExplosionForceUp(explosionForceUp);
+                explosion.SetExplosionRadius(explosionRadius);
+                explosion.SetExplosionDamage(explosionDamage);
+                explosion.SetExplosionObject(explosionObject);
+
+                explosion.SetLightningScale(lightningScale);
+                explosion.SetlightningStrikeDistance(lightningStrikeDistance);
+
+                explosion.SetCrystalScale(crystalScale);
+                explosion.SetCrystalObject(crystalObject);
+
+                explosion.Explode();
+            }
         }
+    }
 
-        Destroy(gameObject);
+    IEnumerator WaitForLightning()
+    {
+        yield return new WaitForSeconds(0.2f);
     }
 
     public void SetExplosionForce(float num)
