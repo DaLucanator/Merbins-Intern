@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - erCrystal1
+  - erCrystal2
+  - erCrystal3
   layers:
   - Default
   - TransparentFX
