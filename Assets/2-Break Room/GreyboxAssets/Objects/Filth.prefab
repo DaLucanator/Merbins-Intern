@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7149253173465183090}
   - component: {fileID: 4488720064697059655}
   - component: {fileID: 215387212329870537}
+  - component: {fileID: 1831781594618251536}
   m_Layer: 5
   m_Name: Filth
   m_TagString: Untagged
@@ -66,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a867a6106931df94eb1c69229eb70d15, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5d1ea075e3cd2c4081d64a25665bff1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -76,3 +77,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1831781594618251536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236177026501824444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf04c8ecea53f74b9e692ce168bfa1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sponge: {fileID: 0}
+  axisOfFreedom: {x: 1, y: 1, z: 1}
+  f_cleanMaxAmount: 100
+  f_cleanProgress: 0
