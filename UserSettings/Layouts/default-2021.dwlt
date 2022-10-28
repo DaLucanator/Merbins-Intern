@@ -14,16 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 9
     y: 53
     width: 1902
     height: 970
+=======
+    x: 0
+    y: 43
+    width: 2560
+    height: 1357
+>>>>>>> Vanessa
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
-  m_Maximized: 0
+  m_Maximized: 1
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -43,12 +50,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1902
     height: 920
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
   controlID: 116
+=======
+    width: 2560
+    height: 1307
+  m_MinSize: {x: 300, y: 200}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 0
+  controlID: 97
+>>>>>>> Vanessa
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -59,11 +75,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: InspectorWindow
+  m_Name: 
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1494
     y: 0
     width: 408
@@ -74,8 +91,19 @@ MonoBehaviour:
   m_Panes:
   - {fileID: 15}
   - {fileID: 13}
+=======
+    x: 1955
+    y: 0
+    width: 605
+    height: 1307
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 14}
+  m_Panes:
+  - {fileID: 14}
+>>>>>>> Vanessa
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 0
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -93,8 +121,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 363
     height: 560
+=======
+    width: 484
+    height: 896
+>>>>>>> Vanessa
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
@@ -118,9 +151,15 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 560
     width: 1494
     height: 360
+=======
+    y: 896
+    width: 1955
+    height: 411
+>>>>>>> Vanessa
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 14}
@@ -149,8 +188,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1902
     height: 970
+=======
+    width: 2560
+    height: 1357
+>>>>>>> Vanessa
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -174,7 +218,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1902
+=======
+    width: 2560
+>>>>>>> Vanessa
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -195,8 +243,13 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 950
     width: 1902
+=======
+    y: 1337
+    width: 2560
+>>>>>>> Vanessa
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -219,12 +272,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1494
     height: 920
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
   controlID: 64
+=======
+    width: 1955
+    height: 1307
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 16192, y: 16192}
+  vertical: 1
+  controlID: 52
+>>>>>>> Vanessa
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,12 +306,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1494
     height: 560
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
   controlID: 32
+=======
+    width: 1955
+    height: 896
+  m_MinSize: {x: 200, y: 100}
+  m_MaxSize: {x: 16192, y: 8096}
+  vertical: 0
+  controlID: 53
+>>>>>>> Vanessa
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -265,16 +336,26 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 363
     y: 0
     width: 1131
     height: 560
+=======
+    x: 484
+    y: 0
+    width: 1471
+    height: 896
+>>>>>>> Vanessa
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
+<<<<<<< HEAD
   - {fileID: 18}
+=======
+>>>>>>> Vanessa
   - {fileID: 12}
   m_Selected: 0
   m_LastSelected: 1
@@ -287,6 +368,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 6c262c1329a02fa49b5cb4c297106f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -316,20 +398,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12079, guid: 0000000000000000e000000000000000, type: 0}
+=======
+  m_Script: {fileID: 12111, guid: 0000000000000000e000000000000000, type: 0}
+>>>>>>> Vanessa
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 390, y: 390}
+  m_MinSize: {x: 455, y: 354}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Lighting
-    m_Image: {fileID: -1347227620855488341, guid: 0000000000000000d000000000000000, type: 0}
+    m_Text: Asset Store
+    m_Image: {fileID: -8693916549880196297, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1539
-    y: 81
-    width: 365
-    height: 902
+    x: 484
+    y: 73
+    width: 1469
+    height: 875
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -354,10 +439,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 9
     y: 643
     width: 1493
     height: 339
+=======
+    x: 0
+    y: 969
+    width: 1954
+    height: 390
+>>>>>>> Vanessa
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -375,22 +467,37 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/9-Global/Assets/PolygonFantasyKingdom/Prefabs/Castle
+=======
+    - Assets/1-Base Defence/Scenes
+>>>>>>> Vanessa
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/9-Global/Assets/PolygonFantasyKingdom/Prefabs/Castle
+=======
+  - Assets/1-Base Defence/Scenes
+>>>>>>> Vanessa
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\Vanessa\Desktop\Merbins-Intern
+  m_LastProjectPath: C:\Users\111115\Documents\Merbins-Intern
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 605}
     m_SelectedIDs: 74201500
     m_LastClickedID: 1384564
     m_ExpandedIDs: 00000000a8740000aa740000ac740000ae740000b0740000b2740000b4740000b6740000b8740000ba740000bc740000be740000c0740000c2740000c4740000c6740000c8740000ca740000cc740000d0740000d2740000307500007875000000ca9a3bffffff7f
+=======
+    scrollPos: {x: 0, y: 60}
+    m_SelectedIDs: 266b0000
+    m_LastClickedID: 27430
+    m_ExpandedIDs: 000000008a6a00008c6a00008e6a0000906a0000dc6a000000ca9a3bffffff7f
+>>>>>>> Vanessa
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -406,7 +513,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 5}
+      m_ClientGUIView: {fileID: 0}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -418,7 +525,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000a8740000aa740000ac740000ae740000b0740000b2740000b4740000b6740000b8740000ba740000bc740000be740000c0740000c2740000c4740000c6740000c8740000ca740000cc740000ce740000d0740000d2740000
+=======
+    m_ExpandedIDs: 000000008a6a00008c6a00008e6a0000906a0000
+>>>>>>> Vanessa
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -446,7 +557,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c623000000000000
+    m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -494,10 +605,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1503
     y: 83
     width: 407
     height: 899
+=======
+    x: 1955
+    y: 73
+    width: 604
+    height: 1286
+>>>>>>> Vanessa
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -535,20 +653,34 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 9
     y: 83
     width: 362
     height: 539
+=======
+    x: 0
+    y: 73
+    width: 483
+    height: 875
+>>>>>>> Vanessa
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
+<<<<<<< HEAD
       scrollPos: {x: 0, y: 256}
       m_SelectedIDs: 6c42fbff
       m_LastClickedID: -310676
       m_ExpandedIDs: c874fbff4a90fbff5e98fbff8c98fbff48b2fbff9cb2fbffa2b2fbffa4b2fbffc013fcff0424fdffac28fdff5a43fdff5c43fdff82a1fdff8aa1fdff262efeff60cafeff7ef3feff103bffff3252ffff3267ffffb275ffffa279ffff907effff5498ffff88b1ffffd0b7ffff30fbffff6c65000082650000d26500002e670000c86c0000
+=======
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 466b0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 64f9ffff2afbffff
+>>>>>>> Vanessa
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -592,10 +724,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 372
     y: 83
     width: 1129
     height: 539
+=======
+    x: 484
+    y: 73
+    width: 1469
+    height: 875
+>>>>>>> Vanessa
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -797,9 +936,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 91.789185, y: -24.182196, z: -7.597955}
     speed: 2
     m_Value: {x: 91.789185, y: -24.182196, z: -7.597955}
+=======
+    m_Target: {x: 156.86256, y: -185.82076, z: 152.49545}
+    speed: 2
+    m_Value: {x: 156.86256, y: -185.82076, z: 152.49545}
+>>>>>>> Vanessa
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -846,6 +991,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: 0.07518351, y: 0.71241874, z: -0.07724176, w: 0.69344056}
     speed: 2
     m_Value: {x: 0.075182796, y: 0.71241194, z: -0.077241026, w: 0.69343394}
@@ -853,6 +999,15 @@ MonoBehaviour:
     m_Target: 46.376484
     speed: 2
     m_Value: 46.376484
+=======
+    m_Target: {x: 0.3609883, y: 0.25021148, z: -0.10119315, w: 0.8926082}
+    speed: 2
+    m_Value: {x: 0.36085275, y: 0.2515617, z: -0.10173921, w: 0.89227307}
+  m_Size:
+    m_Target: 165.32861
+    speed: 2
+    m_Value: 165.32861
+>>>>>>> Vanessa
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -897,10 +1052,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 372
     y: 83
     width: 1129
     height: 539
+=======
+    x: 484
+    y: 73
+    width: 1469
+    height: 875
+>>>>>>> Vanessa
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -911,7 +1073,11 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
+<<<<<<< HEAD
   m_TargetSize: {x: 1129, y: 518}
+=======
+  m_TargetSize: {x: 1469, y: 854}
+>>>>>>> Vanessa
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -926,10 +1092,17 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
+<<<<<<< HEAD
     m_HBaseRangeMin: -564.5
     m_HBaseRangeMax: 564.5
     m_VBaseRangeMin: -259
     m_VBaseRangeMax: 259
+=======
+    m_HBaseRangeMin: -734.5
+    m_HBaseRangeMax: 734.5
+    m_VBaseRangeMin: -427
+    m_VBaseRangeMax: 427
+>>>>>>> Vanessa
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -947,16 +1120,24 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
+<<<<<<< HEAD
       width: 1129
       height: 518
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 564.5, y: 259}
+=======
+      width: 1469
+      height: 854
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 734.5, y: 427}
+>>>>>>> Vanessa
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -564.5
       y: -259
       width: 1129
@@ -964,6 +1145,15 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1129, y: 539}
+=======
+      x: -734.5
+      y: -427
+      width: 1469
+      height: 854
+    m_MinimalGUI: 1
+  m_defaultScale: 1
+  m_LastWindowPixelSize: {x: 1469, y: 875}
+>>>>>>> Vanessa
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -989,10 +1179,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 2249
-    y: 726.5
-    width: 920
-    height: 250
+    x: 0
+    y: 969
+    width: 1954
+    height: 390
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
