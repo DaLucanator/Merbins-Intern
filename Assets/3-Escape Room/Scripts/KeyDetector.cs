@@ -6,13 +6,13 @@ using System;
 
 public class KeyDetector : MonoBehaviour
 {
-    private TextMeshPro display;
+    public TextMeshProUGUI display;
 
-    private KeyPadControl keyPadControl;
+    public KeyPadControl keyPadControl;
     // Start is called before the first frame update
     void Start()
     {
-        display = GameObject.FindGameObjectWithTag("Display").GetComponentInChildren<TextMeshPro>();
+        display = GameObject.FindGameObjectWithTag("Display").GetComponentInChildren<TextMeshProUGUI>();
         display.text = "";
 
         keyPadControl = GameObject.FindGameObjectWithTag("Keypad").GetComponent<KeyPadControl>();
@@ -28,7 +28,7 @@ public class KeyDetector : MonoBehaviour
     {
         if (other.CompareTag("KeypadButton"))
         {
-            var key = other.GetComponentInChildren<TextMeshPro>();
+            var key = other.GetComponentInChildren<TextMeshProUGUI>();
             if (key != null)
             {
                 var keyFeedback = other.gameObject.GetComponent<KeyFeedback>();
