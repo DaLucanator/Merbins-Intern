@@ -14,6 +14,7 @@ public class BaseDefencePotion : MonoBehaviour
     [SerializeField] private GameObject crystalObject;
 
     [SerializeField] private float fearScale;
+    [SerializeField] private GameObject fearObject;
 
     [SerializeField] private float portalScale;
 
@@ -46,6 +47,9 @@ public class BaseDefencePotion : MonoBehaviour
 
         explosion.SetCrystalScale(crystalScale / modifier);
         explosion.SetCrystalObject(crystalObject);
+
+        explosion.SetFearScale(fearScale / modifier);
+        explosion.SetFearObject(fearObject);
 
         explosion.Explode();
 

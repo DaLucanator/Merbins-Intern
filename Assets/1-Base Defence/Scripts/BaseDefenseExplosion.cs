@@ -12,6 +12,9 @@ public class BaseDefenseExplosion : MonoBehaviour
     private float crystalScale;
     private GameObject crystalObject;
 
+    private float fearScale;
+    private GameObject fearObject;
+
     // Update is called once per frame
     public void Explode()
     {
@@ -36,17 +39,29 @@ public class BaseDefenseExplosion : MonoBehaviour
         //Spawn Crystal
         if (crystalScale > 0f)
         {
-            Debug.Log(transform.position.ToString());
             GameObject newCrystal = Instantiate(crystalObject, transform.position, Quaternion.identity);
             BaseDefenseCrystal crystal = newCrystal.GetComponent<BaseDefenseCrystal>();
             crystal.SetCrystaLScale(crystalScale);
         }
 
+        //Fear
+        else if(fearScale > 0f)
+        {
+            GameObject newFear = Instantiate(fearObject, transform.position, Quaternion.identity);
+
+            Collider[] colliders2 = Physics.OverlapSphere(transform.position, explosionRadius);
+            foreach (Collider hit in colliders2)
+            {
+                if (hit.GetComponent<BaseDefenseEnemy>())
+                {
+                    hit.GetComponent<BaseDefenseEnemy>().InduceFear(fearScale);
+                }
+            }
+        }
+
         //lightning Strike
         if (lightningScale > 0f)
         {
-            Debug.Log("kerchoo");
-
             lightningScale -= 1f;
 
             StartCoroutine(WaitForLightning());
@@ -137,5 +152,15 @@ public class BaseDefenseExplosion : MonoBehaviour
     public void SetCrystalObject(GameObject gameObject)
     {
         crystalObject = gameObject;
+    }
+
+    public void SetFearScale(float num)
+    {
+        fearScale = num;
+    }
+
+    public void SetFearObject(GameObject gameObject)
+    {
+        fearObject = gameObject;
     }
 }
