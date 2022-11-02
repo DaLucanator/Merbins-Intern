@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BaseDefenseExplosion : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class BaseDefenseExplosion : MonoBehaviour
     private float fearScale;
     private GameObject fearObject;
 
+    private GameObject goblinRagdoll;
+
     // Update is called once per frame
     public void Explode()
     {
@@ -27,6 +30,8 @@ public class BaseDefenseExplosion : MonoBehaviour
 
             if (rb != null)
             {
+                rb.isKinematic = false;
+                if (hit.gameObject.GetComponent<NavMeshAgent>() != null) { hit.gameObject.GetComponent<NavMeshAgent>().enabled = false; }
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionForceUp);
             }
 
@@ -98,6 +103,8 @@ public class BaseDefenseExplosion : MonoBehaviour
                 explosion.SetCrystalScale(crystalScale);
                 explosion.SetCrystalObject(crystalObject);
 
+                explosion.SetGoblinRagdoll(goblinRagdoll);
+
                 explosion.Explode();
             }
         }
@@ -162,5 +169,10 @@ public class BaseDefenseExplosion : MonoBehaviour
     public void SetFearObject(GameObject gameObject)
     {
         fearObject = gameObject;
+    }
+
+    public void SetGoblinRagdoll(GameObject gameobject)
+    {
+        goblinRagdoll = gameobject;
     }
 }
