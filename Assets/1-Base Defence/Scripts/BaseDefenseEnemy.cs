@@ -1,11 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BaseDefenseEnemy : MonoBehaviour
 {
     [SerializeField] private float health;
+    [SerializeField] private float randomSpeedMod;
+    [SerializeField] private Transform portalLocation, crystalLocation;
+
+    private NavMeshAgent agent;
+    private bool canNavigate = false;
+
+    private Animator animator;
+
     private bool canBeStruckByLightning = true;
+
+    private void Start()
+    {
+
+        float randNum = Random.Range(-randomSpeedMod, randomSpeedMod);
+        agent = gameObject.GetComponent<NavMeshAgent>();
+        agent.SetDestination(crystalLocation.position);
+
+        float startSpeed = agent.speed;
+        agent.speed += randNum;
+
+        animator = gameObject.GetComponent<Animator>();
+        animator.speed += animator.speed * (randNum/startSpeed);
+    }
 
     public void TakeDamage(float damage)
     {
@@ -18,9 +41,20 @@ public class BaseDefenseEnemy : MonoBehaviour
         StartCoroutine(LightningStrikeTimer());
     }
 
+    public void InduceFear( float num)
+    {
+        StopCoroutine(FearTimer(num));
+        StartCoroutine(FearTimer(num));
+    }
+
     public bool CheckifCanBeStruck()
     {
         return canBeStruckByLightning;
+    }
+
+    public void Kill()
+    {
+        Destroy(gameObject);
     }
 
     private IEnumerator LightningStrikeTimer()
@@ -28,6 +62,15 @@ public class BaseDefenseEnemy : MonoBehaviour
         yield return new WaitForSeconds(1f);
         canBeStruckByLightning = true;
     }
+
+    private IEnumerator FearTimer(float num)
+    {
+        agent.SetDestination(portalLocation.position);
+        yield return new WaitForSeconds(num);
+        agent.SetDestination(crystalLocation.position);
+    }
+
+    
 
 
     void DrawLine(Vector3 start, Vector3 end, Color color, float duration, float lineWidth)
