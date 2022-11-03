@@ -17,6 +17,8 @@ public class L2_SpongeScript : MonoBehaviour
     Vector3 startPos;
 
     [SerializeField] int i_filthQuantity;
+    [SerializeField] L2_CleaningManager cM;
+
 
     private void OnEnable()
     {
@@ -67,6 +69,7 @@ public class L2_SpongeScript : MonoBehaviour
     {
         //effects or particles
         yield return new WaitForSeconds(0.2f);
+        cM.FinishTask(0);
         Destroy(gameObject);
     }
 
