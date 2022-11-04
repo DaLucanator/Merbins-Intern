@@ -738,6 +738,7 @@ GameObject:
   - component: {fileID: 176328848}
   - component: {fileID: 176328844}
   - component: {fileID: 176328849}
+  - component: {fileID: 176328850}
   m_Layer: 0
   m_Name: LeftHand Controller
   m_TagString: Untagged
@@ -823,7 +824,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 4294967295
-  m_AttachTransform: {fileID: 1445536011}
+  m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_StartingTargetFilter: {fileID: 0}
@@ -853,7 +854,7 @@ MonoBehaviour:
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls: []
-  m_SelectActionTrigger: 0
+  m_SelectActionTrigger: 1
   m_HideControllerOnSelect: 1
   m_AllowHoveredActivate: 0
   m_TargetPriorityMode: 0
@@ -889,6 +890,19 @@ MonoBehaviour:
   m_HapticHoverCancelIntensity: 0
   m_HapticHoverCancelDuration: 0
   m_AllowHoverHapticsWhileSelecting: 1
+--- !u!135 &176328850
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176328842}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &219553837
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,6 +2124,7 @@ GameObject:
   - component: {fileID: 411905089}
   - component: {fileID: 411905085}
   - component: {fileID: 411905090}
+  - component: {fileID: 411905091}
   m_Layer: 0
   m_Name: RightHand Controller
   m_TagString: Untagged
@@ -2195,7 +2210,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 4294967295
-  m_AttachTransform: {fileID: 1592148686}
+  m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_StartingTargetFilter: {fileID: 0}
@@ -2225,7 +2240,7 @@ MonoBehaviour:
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls: []
-  m_SelectActionTrigger: 0
+  m_SelectActionTrigger: 1
   m_HideControllerOnSelect: 1
   m_AllowHoveredActivate: 0
   m_TargetPriorityMode: 0
@@ -2261,6 +2276,19 @@ MonoBehaviour:
   m_HapticHoverCancelIntensity: 0
   m_HapticHoverCancelDuration: 0
   m_AllowHoverHapticsWhileSelecting: 1
+--- !u!135 &411905091
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411905083}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &474148436
 GameObject:
   m_ObjectHideFlags: 0
@@ -4701,7 +4729,6 @@ GameObject:
   - component: {fileID: 1445536011}
   - component: {fileID: 1445536014}
   - component: {fileID: 1445536013}
-  - component: {fileID: 1445536012}
   m_Layer: 0
   m_Name: LeftHandSphere
   m_TagString: Untagged
@@ -4724,19 +4751,6 @@ Transform:
   m_Father: {fileID: 176328843}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1445536012
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445536010}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1445536013
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5591,7 +5605,6 @@ GameObject:
   - component: {fileID: 1592148686}
   - component: {fileID: 1592148689}
   - component: {fileID: 1592148688}
-  - component: {fileID: 1592148687}
   m_Layer: 0
   m_Name: RightHandSphere
   m_TagString: Untagged
@@ -5614,19 +5627,6 @@ Transform:
   m_Father: {fileID: 411905084}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1592148687
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1592148685}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1592148688
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6123,7 +6123,6 @@ GameObject:
   - component: {fileID: 1668674494}
   - component: {fileID: 1668674493}
   - component: {fileID: 1668674492}
-  - component: {fileID: 1668674491}
   - component: {fileID: 1668674495}
   m_Layer: 0
   m_Name: TouchLeft
@@ -6147,18 +6146,6 @@ Transform:
   m_Father: {fileID: 176328843}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1668674491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668674489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71c6cffbe9747445b7715cde1e92d06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &1668674492
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7032,7 +7019,6 @@ GameObject:
   - component: {fileID: 2040846518}
   - component: {fileID: 2040846517}
   - component: {fileID: 2040846516}
-  - component: {fileID: 2040846515}
   - component: {fileID: 2040846519}
   m_Layer: 0
   m_Name: TouchRight
@@ -7056,18 +7042,6 @@ Transform:
   m_Father: {fileID: 411905084}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2040846515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040846513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71c6cffbe9747445b7715cde1e92d06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &2040846516
 SphereCollider:
   m_ObjectHideFlags: 0
