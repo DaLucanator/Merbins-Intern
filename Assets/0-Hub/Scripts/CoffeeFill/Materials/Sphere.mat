@@ -34,6 +34,6 @@ Material:
     - _FresnelColor: {r: 0.6372731, g: 0.764151, b: 0.65074736, a: 0}
     - _LiquidColor: {r: 0.5745587, g: 1, b: 0.56037736, a: 1}
     - _PlaneClipNormals: {r: -0.6960785, g: -0.4942775, b: 0.5207345, a: -1.4573641}
-    - _PlaneNormal: {r: 0, g: -1, b: -0, a: 2.821}
-    - _PlanePosition: {r: 0, g: 2.821, b: 0, a: 0}
+    - _PlaneNormal: {r: 0, g: -1, b: -0, a: 3.783}
+    - _PlanePosition: {r: 0, g: 3.783, b: 0, a: 0}
   m_BuildTextureStacks: []

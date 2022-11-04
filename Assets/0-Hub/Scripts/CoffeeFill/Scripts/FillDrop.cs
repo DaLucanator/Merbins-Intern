@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FillDrop : MonoBehaviour
 {
+    public Transform CoffeeGameObject;
+    //public bool lol; 
+
     public CoffeeSpill coffeeSpill;
     public List<CoffeeBool> coffeeCollider;
     public float speed = 1f;
@@ -27,6 +30,12 @@ public class FillDrop : MonoBehaviour
 
         if (allTrue == false)
         {
+            coffeeSpill.coffee = Mathf.Lerp(coffeeSpill.coffee, 0, Time.deltaTime * speed);
+        }
+
+        if (CoffeeGameObject.transform.up.y < 0f)
+        {
+            //you're upside down
             coffeeSpill.coffee = Mathf.Lerp(coffeeSpill.coffee, 0, Time.deltaTime * speed);
         }
     }
