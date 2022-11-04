@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class L2_Bin : MonoBehaviour
 {
-    Rigidbody rb;
     [SerializeField] int i_RubbishQuantity;
     [SerializeField] L2_CleaningManager cM;
 

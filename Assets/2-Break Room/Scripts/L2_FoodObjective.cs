@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class L2_FoodObjective : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public L2_FoodManager fM;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.GetComponent<L2_FoodItem>())
+        {
+            fM.foodObj(other.gameObject, true);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        if (other.gameObject.GetComponent<L2_FoodItem>())
+        {
+            fM.foodObj(other.gameObject,false);
+        }
     }
+
 }
