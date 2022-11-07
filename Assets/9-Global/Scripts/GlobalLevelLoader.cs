@@ -6,29 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class GlobalLevelLoader : MonoBehaviour
 {
-    [SerializeField] private string levelToLoad;
     [SerializeField] private float timeToWait;
-    [SerializeField] private bool testLevelLoader;
     [SerializeField] private GameObject portalObject;
 
-    public void Start()
+    public void LoadLevel(string levelToLoad)
     {
-        if (testLevelLoader) { StartCoroutine(LoadLevelTimer()); }
+        StartCoroutine(LoadLevelTimer(levelToLoad));
     }
 
-    public void LoadLevel()
-    {
-        StartCoroutine(LoadLevelTimer());
-    }
-
-    IEnumerator LoadLevelTimer()
+    IEnumerator LoadLevelTimer(string levelToLoad)
     {
         PortalEffect();
 
         yield return new WaitForSeconds(timeToWait);
 
-        if (levelToLoad != null) { SceneManager.LoadScene(levelToLoad); }
-        Debug.Log("Please enter level name to Level Loader. Thankyou :)");
+        SceneManager.LoadScene(levelToLoad);
     }
 
     void PortalEffect()
