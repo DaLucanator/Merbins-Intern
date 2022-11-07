@@ -67,6 +67,7 @@ public class BaseDefenseExplosion : MonoBehaviour
         //lightning Strike
         if (lightningScale > 0f)
         {
+            Debug.Log("pew");
             lightningScale -= 1f;
 
             StartCoroutine(WaitForLightning());
@@ -86,7 +87,7 @@ public class BaseDefenseExplosion : MonoBehaviour
 
             if(enemies.Count > 0)
             {
-                Transform objectToHit = colliders2[Random.Range(0, enemies.Count)].transform;
+                Transform objectToHit = enemies[Random.Range(0, enemies.Count)].transform;
 
                 GameObject newExplosionObject = Instantiate(explosionObject, objectToHit.position, Quaternion.identity);
                 BaseDefenseExplosion explosion = newExplosionObject.GetComponent<BaseDefenseExplosion>();
