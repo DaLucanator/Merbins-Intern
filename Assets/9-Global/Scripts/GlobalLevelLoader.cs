@@ -13,17 +13,21 @@ public class GlobalLevelLoader : MonoBehaviour
 
     public void Start()
     {
-        if (testLevelLoader) { StartCoroutine(LoadLevel()); }
+        if (testLevelLoader) { StartCoroutine(LoadLevelTimer()); }
     }
 
-    public IEnumerator LoadLevel()
+    public void LoadLevel()
+    {
+        StartCoroutine(LoadLevelTimer());
+    }
+
+    IEnumerator LoadLevelTimer()
     {
         PortalEffect();
 
         yield return new WaitForSeconds(timeToWait);
 
         if (levelToLoad != null) { SceneManager.LoadScene(levelToLoad); }
-
         Debug.Log("Please enter level name to Level Loader. Thankyou :)");
     }
 
