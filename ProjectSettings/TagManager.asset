@@ -11,11 +11,12 @@ TagManager:
   - Display
   - Keypad
   - Touch
+  - LevelLoader
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NavMesh
   - Water
   - UI
   - 

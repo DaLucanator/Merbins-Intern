@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BaseDefenseExplosion : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class BaseDefenseExplosion : MonoBehaviour
     
     private float crystalScale;
     private GameObject crystalObject;
+
+    private float fearScale;
+    private GameObject fearObject;
+
+    private GameObject goblinRagdoll;
 
     // Update is called once per frame
     public void Explode()
@@ -24,6 +30,8 @@ public class BaseDefenseExplosion : MonoBehaviour
 
             if (rb != null)
             {
+                rb.isKinematic = false;
+                if (hit.gameObject.GetComponent<NavMeshAgent>() != null) { hit.gameObject.GetComponent<NavMeshAgent>().enabled = false; }
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionForceUp);
             }
 
@@ -36,17 +44,30 @@ public class BaseDefenseExplosion : MonoBehaviour
         //Spawn Crystal
         if (crystalScale > 0f)
         {
-            Debug.Log(transform.position.ToString());
             GameObject newCrystal = Instantiate(crystalObject, transform.position, Quaternion.identity);
             BaseDefenseCrystal crystal = newCrystal.GetComponent<BaseDefenseCrystal>();
             crystal.SetCrystaLScale(crystalScale);
         }
 
+        //Fear
+        else if(fearScale > 0f)
+        {
+            GameObject newFear = Instantiate(fearObject, transform.position, Quaternion.identity);
+
+            Collider[] colliders2 = Physics.OverlapSphere(transform.position, explosionRadius);
+            foreach (Collider hit in colliders2)
+            {
+                if (hit.GetComponent<BaseDefenseEnemy>())
+                {
+                    hit.GetComponent<BaseDefenseEnemy>().InduceFear(fearScale);
+                }
+            }
+        }
+
         //lightning Strike
         if (lightningScale > 0f)
         {
-            Debug.Log("kerchoo");
-
+            Debug.Log("pew");
             lightningScale -= 1f;
 
             StartCoroutine(WaitForLightning());
@@ -66,7 +87,7 @@ public class BaseDefenseExplosion : MonoBehaviour
 
             if(enemies.Count > 0)
             {
-                Transform objectToHit = colliders2[Random.Range(0, enemies.Count)].transform;
+                Transform objectToHit = enemies[Random.Range(0, enemies.Count)].transform;
 
                 GameObject newExplosionObject = Instantiate(explosionObject, objectToHit.position, Quaternion.identity);
                 BaseDefenseExplosion explosion = newExplosionObject.GetComponent<BaseDefenseExplosion>();
@@ -82,6 +103,8 @@ public class BaseDefenseExplosion : MonoBehaviour
 
                 explosion.SetCrystalScale(crystalScale);
                 explosion.SetCrystalObject(crystalObject);
+
+                explosion.SetGoblinRagdoll(goblinRagdoll);
 
                 explosion.Explode();
             }
@@ -137,5 +160,20 @@ public class BaseDefenseExplosion : MonoBehaviour
     public void SetCrystalObject(GameObject gameObject)
     {
         crystalObject = gameObject;
+    }
+
+    public void SetFearScale(float num)
+    {
+        fearScale = num;
+    }
+
+    public void SetFearObject(GameObject gameObject)
+    {
+        fearObject = gameObject;
+    }
+
+    public void SetGoblinRagdoll(GameObject gameobject)
+    {
+        goblinRagdoll = gameobject;
     }
 }
