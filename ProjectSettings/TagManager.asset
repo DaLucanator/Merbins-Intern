@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - erCrystal1
+  - erCrystal2
+  - erCrystal3
+  - KeypadButton
+  - Display
+  - Keypad
+  - Touch
   layers:
   - Default
   - TransparentFX
