@@ -15,4 +15,8 @@ public class L2_Washable : MonoBehaviour
     {
         
     }
+    public void doneParticles()
+    {
+
+    }
 }

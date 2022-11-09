@@ -12,10 +12,11 @@ public class L2_CleaningManager : MonoBehaviour
 
 
     [Header("Cleaning tasks")]
-    bool filth;
-    bool garbage;
-    bool dishes;
-    bool food;
+    [SerializeField] bool filth;
+    [SerializeField] bool garbage;
+    [SerializeField] bool dishes;
+    [SerializeField] bool food;
+    [SerializeField] bool finished;
     public void FinishTask(int _task)
     {
         switch (_task)
@@ -38,6 +39,8 @@ public class L2_CleaningManager : MonoBehaviour
         {
             //tasks are done
             // win
+            //allow remodeling
+            finished = true;
         }
 
     }

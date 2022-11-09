@@ -10,11 +10,11 @@ public class L2_Dishwasher : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<L2_Washable>())
+        if (other.gameObject.TryGetComponent(out L2_Washable washable))
         {
             i_washQuantity--;
             cleanedObjects.Add(other.gameObject);
-
+            washable.doneParticles();
 
             if (i_washQuantity <= 0)
             {
