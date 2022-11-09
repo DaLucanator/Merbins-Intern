@@ -2557,7 +2557,7 @@ PrefabInstance:
     - target: {fileID: -4242482846685892375, guid: 2acde662d556a804b984fc882c341253, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3b1a7dc124ddbf94e90003a8172fd686, type: 2}
+      objectReference: {fileID: 2100000, guid: c9f6e7c6567afd04696be62309985036, type: 2}
     - target: {fileID: 919132149155446097, guid: 2acde662d556a804b984fc882c341253, type: 3}
       propertyPath: m_Name
       value: RightHand
@@ -2663,7 +2663,7 @@ PrefabInstance:
     - target: {fileID: -4242482846685892375, guid: 2acde662d556a804b984fc882c341253, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3b1a7dc124ddbf94e90003a8172fd686, type: 2}
+      objectReference: {fileID: 2100000, guid: c9f6e7c6567afd04696be62309985036, type: 2}
     - target: {fileID: 919132149155446097, guid: 2acde662d556a804b984fc882c341253, type: 3}
       propertyPath: m_Name
       value: LeftHand
