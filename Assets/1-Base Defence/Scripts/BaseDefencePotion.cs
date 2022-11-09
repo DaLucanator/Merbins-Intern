@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BaseDefencePotion : MonoBehaviour
 {
-    [SerializeField] private float explosionForce, explosionForceUp, explosionRadius, explosionDamage;
+    [SerializeField] private float explosionForce, explosionForceUp, explosionRadius, explosionDamage, explosionScale;
     [SerializeField] private GameObject explosionObject;
 
     [SerializeField] private float lightningScale, lightningStrikeDistance;
@@ -14,10 +15,13 @@ public class BaseDefencePotion : MonoBehaviour
     [SerializeField] private GameObject crystalObject;
 
     [SerializeField] private float fearScale;
+    [SerializeField] private GameObject fearObject;
 
     [SerializeField] private float portalScale;
 
     [SerializeField] private bool potionIsActive;
+
+    [SerializeField] private GameObject goblinRagdoll;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -33,19 +37,24 @@ public class BaseDefencePotion : MonoBehaviour
         BaseDefenseExplosion explosion = newExplosionObject.GetComponent<BaseDefenseExplosion>();
 
         float modifier = lightningScale + 1f;
-        float modifier2 = lightningScale + crystalScale + fearScale + portalScale;
+        float modifier2 = (lightningScale + crystalScale + fearScale + portalScale) * explosionScale;
 
-        explosion.SetExplosionForce((explosionForce * modifier2) / modifier);
-        explosion.SetExplosionForceUp((explosionForceUp * modifier2) / modifier);
-        explosion.SetExplosionRadius((explosionRadius * modifier2) / modifier);
-        explosion.SetExplosionDamage((explosionDamage * modifier2) / modifier);
+        explosion.SetExplosionForce(explosionForce + (explosionForce * modifier2));
+        explosion.SetExplosionForceUp(explosionForceUp + (explosionForceUp * modifier2));
+        explosion.SetExplosionRadius(explosionRadius + (explosionRadius * modifier2));
+        explosion.SetExplosionDamage(explosionDamage + (explosionDamage * modifier2));
         explosion.SetExplosionObject(explosionObject);
 
         explosion.SetLightningScale(lightningScale -1f);
-        explosion.SetlightningStrikeDistance(lightningStrikeDistance);
+        explosion.SetlightningStrikeDistance(lightningStrikeDistance); ;
 
-        explosion.SetCrystalScale(crystalScale / modifier);
+        explosion.SetCrystalScale(crystalScale);
         explosion.SetCrystalObject(crystalObject);
+
+        explosion.SetFearScale(fearScale);
+       // explosion.SetFearObject(fearObject);
+
+       // explosion.SetGoblinRagdoll(goblinRagdoll);
 
         explosion.Explode();
 

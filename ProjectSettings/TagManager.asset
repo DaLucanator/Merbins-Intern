@@ -4,12 +4,19 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - L2_RemodelData
+  - erCrystal1
+  - erCrystal2
+  - erCrystal3
+  - KeypadButton
+  - Display
+  - Keypad
+  - Touch
+  - LevelLoader
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NavMesh
   - Water
   - UI
   - 
