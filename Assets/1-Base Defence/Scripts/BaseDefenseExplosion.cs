@@ -8,15 +8,14 @@ public class BaseDefenseExplosion : MonoBehaviour
     private float explosionForce, explosionForceUp, explosionRadius, explosionDamage;
     private GameObject explosionObject;
 
+    private float portalScale;
+    private GameObject portalObject;
+    private GameObject portal2Object;
+
     private float lightningScale, lightningStrikeDistance;
     
     private float crystalScale;
     private GameObject crystalObject;
-
-    private float fearScale;
-    private GameObject fearObject;
-
-    private GameObject goblinRagdoll;
 
     // Update is called once per frame
     public void Explode()
@@ -41,6 +40,31 @@ public class BaseDefenseExplosion : MonoBehaviour
             }
         }
 
+        //Portal
+        if (portalScale > 0)
+        {
+            GameObject portal1Object = Instantiate(portalObject, transform.position, Quaternion.identity);
+            BaseDefensePortal portal1 = portal1Object.GetComponent<BaseDefensePortal>();
+
+            portal2Object.SetActive(true);
+            portal1Object.SetActive(true);
+
+            BaseDefensePortal portal2 = portal2Object.GetComponent<BaseDefensePortal>();
+            portal1.SetPortalScale(explosionRadius);
+
+            portal1.SetOtherPortal(portal2);
+            portal2.SetOtherPortal(portal1);
+
+            portal2.Activate(portalScale, false);
+            portal1.Activate(portalScale, true);
+        }
+        //instantiate the portal in the list of portals
+        //remove that portal from the list of portals
+        //add that portal back into the list of portals after portalscale time
+        //activate portal2
+        //activate portal
+
+
         //Spawn Crystal
         if (crystalScale > 0f)
         {
@@ -49,28 +73,11 @@ public class BaseDefenseExplosion : MonoBehaviour
             crystal.SetCrystaLScale(crystalScale);
         }
 
-        //Fear
-        else if(fearScale > 0f)
-        {
-            GameObject newFear = Instantiate(fearObject, transform.position, Quaternion.identity);
-
-            Collider[] colliders2 = Physics.OverlapSphere(transform.position, explosionRadius);
-            foreach (Collider hit in colliders2)
-            {
-                if (hit.GetComponent<BaseDefenseEnemy>())
-                {
-                    hit.GetComponent<BaseDefenseEnemy>().InduceFear(fearScale);
-                }
-            }
-        }
-
         //lightning Strike
         if (lightningScale > 0f)
         {
             Debug.Log("pew");
             lightningScale -= 1f;
-
-            StartCoroutine(WaitForLightning());
 
             Collider[] colliders2 = Physics.OverlapSphere(transform.position, lightningStrikeDistance);
             List<GameObject> enemies = new List<GameObject>();
@@ -98,22 +105,19 @@ public class BaseDefenseExplosion : MonoBehaviour
                 explosion.SetExplosionDamage(explosionDamage);
                 explosion.SetExplosionObject(explosionObject);
 
+                explosion.setPortalScale(portalScale);
+                explosion.SetPortalObject(portalObject);
+                explosion.SetPortal2Object(portal2Object);
+
                 explosion.SetLightningScale(lightningScale);
                 explosion.SetlightningStrikeDistance(lightningStrikeDistance);
 
                 explosion.SetCrystalScale(crystalScale);
                 explosion.SetCrystalObject(crystalObject);
 
-                explosion.SetGoblinRagdoll(goblinRagdoll);
-
                 explosion.Explode();
             }
         }
-    }
-
-    IEnumerator WaitForLightning()
-    {
-        yield return new WaitForSeconds(0.2f);
     }
 
     public void SetExplosionForce(float num)
@@ -141,6 +145,21 @@ public class BaseDefenseExplosion : MonoBehaviour
         explosionObject = gameObject;
     }
 
+    public void setPortalScale(float num)
+    {
+        portalScale = num;
+    }
+
+    public void SetPortalObject(GameObject portal)
+    {
+        portalObject = portal;
+    }
+
+    public void SetPortal2Object(GameObject portal)
+    {
+        portal2Object = portal;
+    }
+
     public void SetLightningScale(float num)
     {
         lightningScale = num;
@@ -160,20 +179,5 @@ public class BaseDefenseExplosion : MonoBehaviour
     public void SetCrystalObject(GameObject gameObject)
     {
         crystalObject = gameObject;
-    }
-
-    public void SetFearScale(float num)
-    {
-        fearScale = num;
-    }
-
-    public void SetFearObject(GameObject gameObject)
-    {
-        fearObject = gameObject;
-    }
-
-    public void SetGoblinRagdoll(GameObject gameobject)
-    {
-        goblinRagdoll = gameobject;
     }
 }

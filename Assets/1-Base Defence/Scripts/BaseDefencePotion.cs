@@ -14,18 +14,15 @@ public class BaseDefencePotion : MonoBehaviour
     [SerializeField] private float crystalScale;
     [SerializeField] private GameObject crystalObject;
 
-    [SerializeField] private float fearScale;
-    [SerializeField] private GameObject fearObject;
-
     [SerializeField] private float portalScale;
+    [SerializeField] private GameObject portalObject;
+    [SerializeField] private GameObject portal2Object;
 
     [SerializeField] private bool potionIsActive;
 
-    [SerializeField] private GameObject goblinRagdoll;
-
     private void OnCollisionEnter(Collision collision)
     {
-        if (potionIsActive)
+        if (potionIsActive && collision.gameObject.GetComponent<BaseDefensePortal>() == null)
         {
             SpawnExplosion();
         }
@@ -37,7 +34,7 @@ public class BaseDefencePotion : MonoBehaviour
         BaseDefenseExplosion explosion = newExplosionObject.GetComponent<BaseDefenseExplosion>();
 
         float modifier = lightningScale + 1f;
-        float modifier2 = (lightningScale + crystalScale + fearScale + portalScale) * explosionScale;
+        float modifier2 = (lightningScale + crystalScale + portalScale) * explosionScale;
 
         explosion.SetExplosionForce(explosionForce + (explosionForce * modifier2));
         explosion.SetExplosionForceUp(explosionForceUp + (explosionForceUp * modifier2));
@@ -45,16 +42,15 @@ public class BaseDefencePotion : MonoBehaviour
         explosion.SetExplosionDamage(explosionDamage + (explosionDamage * modifier2));
         explosion.SetExplosionObject(explosionObject);
 
-        explosion.SetLightningScale(lightningScale -1f);
+        explosion.setPortalScale(portalScale);
+        explosion.SetPortalObject(portalObject);
+        explosion.SetPortal2Object(portal2Object);
+
+        explosion.SetLightningScale(lightningScale);
         explosion.SetlightningStrikeDistance(lightningStrikeDistance); ;
 
         explosion.SetCrystalScale(crystalScale);
         explosion.SetCrystalObject(crystalObject);
-
-        explosion.SetFearScale(fearScale);
-       // explosion.SetFearObject(fearObject);
-
-       // explosion.SetGoblinRagdoll(goblinRagdoll);
 
         explosion.Explode();
 
