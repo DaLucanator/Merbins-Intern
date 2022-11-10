@@ -17,6 +17,12 @@ public class L2_CleaningManager : MonoBehaviour
     [SerializeField] bool dishes;
     [SerializeField] bool food;
     [SerializeField] bool finished;
+    [Header("Prototype text objectives")]
+    [SerializeField] GameObject objfilth;
+    [SerializeField] GameObject objgarbage;
+    [SerializeField] GameObject objdish;
+    [SerializeField] GameObject objfood;
+    [SerializeField] GameObject objfin;
     public void FinishTask(int _task)
     {
         switch (_task)
@@ -42,6 +48,13 @@ public class L2_CleaningManager : MonoBehaviour
             //allow remodeling
             finished = true;
         }
+        objfilth.SetActive(!filth);
+        objgarbage.SetActive(!garbage);
+        objdish.SetActive(!dishes);
+        objfood.SetActive(!food);
+        objfin.SetActive(finished);
+
+
 
     }
 

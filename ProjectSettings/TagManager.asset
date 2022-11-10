@@ -12,6 +12,7 @@ TagManager:
   - Keypad
   - Touch
   - LevelLoader
+  - L2_RemodelData
   layers:
   - Default
   - TransparentFX
