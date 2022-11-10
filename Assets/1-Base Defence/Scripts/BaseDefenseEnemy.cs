@@ -10,7 +10,6 @@ public class BaseDefenseEnemy : MonoBehaviour
     [SerializeField] private Transform portalLocation, crystalLocation;
 
     private NavMeshAgent agent;
-    private bool canNavigate = false;
 
     private Animator animator;
 
@@ -41,12 +40,6 @@ public class BaseDefenseEnemy : MonoBehaviour
         StartCoroutine(LightningStrikeTimer());
     }
 
-    public void InduceFear( float num)
-    {
-        StopCoroutine(FearTimer(num));
-        StartCoroutine(FearTimer(num));
-    }
-
     public bool CheckifCanBeStruck()
     {
         return canBeStruckByLightning;
@@ -62,16 +55,6 @@ public class BaseDefenseEnemy : MonoBehaviour
         yield return new WaitForSeconds(1f);
         canBeStruckByLightning = true;
     }
-
-    private IEnumerator FearTimer(float num)
-    {
-        agent.SetDestination(portalLocation.position);
-        yield return new WaitForSeconds(num);
-        agent.SetDestination(crystalLocation.position);
-    }
-
-    
-
 
     void DrawLine(Vector3 start, Vector3 end, Color color, float duration, float lineWidth)
     {
