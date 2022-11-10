@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CleaningManager : MonoBehaviour
+public class L2_Washable : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,9 @@ public class CleaningManager : MonoBehaviour
     void Update()
     {
         
+    }
+    public void doneParticles()
+    {
+
     }
 }
