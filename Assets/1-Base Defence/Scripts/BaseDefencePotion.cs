@@ -57,7 +57,7 @@ public class BaseDefencePotion : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void ActivatePotion()
+    public void ActivatePotion()
     {
         potionIsActive = true;
     }
