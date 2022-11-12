@@ -6,9 +6,10 @@ public class Enemy_Spawn : MonoBehaviour
 {
 
     public GameObject G0_Enemy;
-    public float spawnTime = 5.0f;
+    public float spawnTime = 2.0f;
 
     // Start is called before the first frame update
+
     void Start()
     {
         InstantiateEnemy();
@@ -18,8 +19,15 @@ public class Enemy_Spawn : MonoBehaviour
     {
         GameObject G0_Current = (GameObject)Instantiate(G0_Enemy);
         G0_Current.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-
-        StartCoroutine("waitForFewSeconds");
+        if (spawnTime > -155)
+        {
+            StartCoroutine("waitForFewSeconds");
+        }
+        else
+        {
+            Debug.Log("EnD");
+        }
+        
 
     }
 
@@ -27,12 +35,9 @@ public class Enemy_Spawn : MonoBehaviour
     {
         yield return new WaitForSeconds(spawnTime);
         InstantiateEnemy();
+        spawnTime = spawnTime - 0.3f;
+        Debug.Log(spawnTime);
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
