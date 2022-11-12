@@ -6,7 +6,7 @@ public class EnemiAI : MonoBehaviour
 {
 
     Transform tr_Player;
-    float f_RotSpeed = 3.0f, f_MoveSpeed = 7.0f;
+    float f_RotSpeed = 3.0f, f_MoveSpeed = 6.0f;
 
     // Start is called before the first frame update
     void Start()

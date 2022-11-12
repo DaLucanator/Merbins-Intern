@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Destruction : MonoBehaviour
 {
-    //var delay = 2.0;
-    public GameObject Smoke;
+
+    public AudioSource Death_Goblin;
 
     float count = 0f;
 
@@ -13,10 +13,13 @@ public class Destruction : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("DestrucTrigger"))
         {
+            
             Destroy(collision.gameObject);
+            Death_Goblin.Play();
             count = count + 1;
             
         }
+        
         Debug.Log(count);
 
 
