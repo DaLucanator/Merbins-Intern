@@ -27,7 +27,7 @@ public class BaseDefenseExplosion : MonoBehaviour
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             BaseDefenseEnemy enemy = hit.GetComponent<BaseDefenseEnemy>();
 
-            if (rb != null)
+            if (rb != null && hit.GetComponent<BaseDefenseCrystal>() == null)
             {
                 rb.isKinematic = false;
                 if (hit.gameObject.GetComponent<NavMeshAgent>() != null) { hit.gameObject.GetComponent<NavMeshAgent>().enabled = false; }
@@ -70,7 +70,16 @@ public class BaseDefenseExplosion : MonoBehaviour
         {
             GameObject newCrystal = Instantiate(crystalObject, transform.position, Quaternion.identity);
             BaseDefenseCrystal crystal = newCrystal.GetComponent<BaseDefenseCrystal>();
+
+            crystal.SetExplosionForce(explosionForce);
+            crystal.SetExplosionForceUp(explosionForceUp);
+            crystal.SetExplosionRadius(explosionRadius);
+            crystal.SetExplosionDamage(explosionDamage);
+            crystal.SetExplosionObject(explosionObject);
+
             crystal.SetCrystaLScale(crystalScale);
+
+            crystal.Activate();
         }
 
         //lightning Strike
@@ -87,6 +96,7 @@ public class BaseDefenseExplosion : MonoBehaviour
                 {
                     if(hit.gameObject.GetComponent<BaseDefenseEnemy>().CheckifCanBeStruck())
                     {
+                        Debug.Log("pew2");
                         enemies.Add(hit.gameObject);
                     }
                 }

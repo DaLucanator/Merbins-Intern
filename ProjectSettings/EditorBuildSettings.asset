@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/1-Base Defence/Scenes/Luc Test 2.unity
+    guid: e3d63851cd2ff384db9dc8a447a1762c
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: e81e96b301fe14248928018a9a51166d, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5eeec16190ca709438ffd9874e40dd04, type: 2}

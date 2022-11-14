@@ -3555,13 +3555,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4857026720837510744}
   - component: {fileID: 4857026720837510745}
-  - component: {fileID: 4857026720837510746}
-  - component: {fileID: 4857026720837510747}
   - component: {fileID: 8477311856404243933}
   - component: {fileID: 8477311856404243935}
-  - component: {fileID: 8477311856404243928}
+  - component: {fileID: 4571195167244463494}
+  - component: {fileID: 6578931380322529147}
   m_Layer: 0
-  m_Name: Goblin
+  m_Name: Ragdoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3663,44 +3662,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4857026720837510746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4857026720837510748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d7a392d444dafb4aa9060e7fc4245ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  randomSpeedMod: 1
-  portalLocation: {fileID: 0}
-  crystalLocation: {fileID: 0}
---- !u!195 &4857026720837510747
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4857026720837510748}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 1
-  m_Speed: 3
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!54 &8477311856404243933
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3713,7 +3674,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -3731,7 +3692,25 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &8477311856404243928
+--- !u!114 &4571195167244463494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4857026720837510748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f247de06f7d9a4cb91231ead10d394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 4857026720837510748, guid: f2f94eaffb11e494b9b97e1ff8bf23b2, type: 3}
+  randomFlingForce: 750
+  randomFlingTorque: 45
+  randomFlingTorque2: 10
+  getUpTimerMin: 0.5
+  getUpTimerMax: 1.5
+--- !u!114 &6578931380322529147
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3743,8 +3722,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98ef342d0d5a76a49a7e7b3dae66f134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalCooldown: 0.5
-  portalVelocityMultiplier: 2
+  portalCooldown: 0
+  portalVelocityMultiplier: 1
   canPortal: 1
 --- !u!1 &4857026720859100801
 GameObject:

@@ -14,10 +14,11 @@ public class BaseDefenseEnemy : MonoBehaviour
     private Animator animator;
 
     private bool canBeStruckByLightning = true;
+    private bool isRagdoll;
 
     private void Start()
     {
-
+        crystalLocation = GameObject.Find("Crystal Location").transform;
         float randNum = Random.Range(-randomSpeedMod, randomSpeedMod);
         agent = gameObject.GetComponent<NavMeshAgent>();
         agent.SetDestination(crystalLocation.position);
@@ -70,4 +71,12 @@ public class BaseDefenseEnemy : MonoBehaviour
         lr.SetPosition(1, end);
         GameObject.Destroy(myLine, duration);
     }
+
+    public bool CheckIfRagdoll()
+    {
+        return isRagdoll;
+    }
+
+
+    //attack the crystal
 }
