@@ -29,7 +29,7 @@ public class CrystalRagdoll : MonoBehaviour
     public void SetCrystaLScale(float num)
     {
         crystalScale = num;
-        gameObject.transform.localScale *= num;
+        gameObject.transform.localScale *= explosionRadius;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -40,10 +40,10 @@ public class CrystalRagdoll : MonoBehaviour
             GameObject newExplosionObject = Instantiate(explosionObject, collision.GetContact(0).point, Quaternion.identity);
             BaseDefenseExplosion explosion = newExplosionObject.GetComponent<BaseDefenseExplosion>();
 
-            explosion.SetExplosionForce(explosionForce + (explosionForce * crystalScale));
-            explosion.SetExplosionForceUp(explosionForceUp + (explosionForceUp * crystalScale));
-            explosion.SetExplosionRadius(explosionRadius + (explosionRadius * crystalScale));
-            explosion.SetExplosionDamage(explosionDamage + (explosionDamage * crystalScale));
+            explosion.SetExplosionForce(explosionForce * crystalScale);
+            explosion.SetExplosionForceUp(explosionForceUp * crystalScale);
+            explosion.SetExplosionRadius(explosionRadius * crystalScale);
+            explosion.SetExplosionDamage(explosionDamage * crystalScale);
             explosion.SetExplosionObject(explosionObject);
 
             explosion.SetCrystalScale(crystalScale);
@@ -63,8 +63,6 @@ public class CrystalRagdoll : MonoBehaviour
     {
         gameObject.transform.localScale = scale;
     }
-
-    //when I collide with ground spawn an explosion
 
     public void SetExplosionForce(float num)
     {

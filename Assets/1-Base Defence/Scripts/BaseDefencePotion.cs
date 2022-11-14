@@ -34,12 +34,12 @@ public class BaseDefencePotion : MonoBehaviour
         BaseDefenseExplosion explosion = newExplosionObject.GetComponent<BaseDefenseExplosion>();
 
         float modifier = lightningScale + 1f;
-        float modifier2 = (lightningScale + crystalScale + portalScale) * explosionScale;
+        float modifier2 = crystalScale + portalScale;
 
-        explosion.SetExplosionForce(explosionForce + (explosionForce * modifier2));
-        explosion.SetExplosionForceUp(explosionForceUp + (explosionForceUp * modifier2));
-        explosion.SetExplosionRadius(explosionRadius + (explosionRadius * modifier2));
-        explosion.SetExplosionDamage(explosionDamage + (explosionDamage * modifier2));
+        explosion.SetExplosionForce(explosionForce * modifier2);
+        explosion.SetExplosionForceUp(explosionForceUp * modifier2);
+        explosion.SetExplosionRadius(explosionRadius * modifier2);
+        explosion.SetExplosionDamage(explosionDamage * modifier2);
         explosion.SetExplosionObject(explosionObject);
 
         explosion.setPortalScale(portalScale);
@@ -55,6 +55,32 @@ public class BaseDefencePotion : MonoBehaviour
         explosion.Explode();
 
         Destroy(gameObject);
+    }
+
+    public float GetCrystalScale()
+    {
+        return crystalScale;
+    }
+    public float GetLightningScale()
+    {
+        return lightningScale;
+    }
+    public float GetPortalScale()
+    {
+        return portalScale;
+    }
+
+    public void SetCrystalScale( float num)
+    {
+        crystalScale = num;
+    }
+    public void SetLightningScale(float num)
+    {
+        lightningScale = num;
+    }
+    public void SetPortalScale(float num)
+    {
+        portalScale = num;
     }
 
     public void ActivatePotion()

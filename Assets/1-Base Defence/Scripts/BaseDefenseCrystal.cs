@@ -8,18 +8,14 @@ public class BaseDefenseCrystal : MonoBehaviour
     [SerializeField] private float health = 5f;
     [SerializeField] private GameObject crystalRagdollObject;
 
-    private float explosionForce, explosionForceUp, explosionRadius, explosionDamage;
-    private GameObject explosionObject;
-
     private float crystalScale;
-    private GameObject crystalObject;
 
     private bool isActive;
 
     public void SetCrystaLScale(float num)
     {
         crystalScale = num;
-        gameObject.transform.localScale *= num;
+        gameObject.transform.localScale *= crystalScale;
         health *= num;
     }
 
@@ -48,36 +44,5 @@ public class BaseDefenseCrystal : MonoBehaviour
 
             Destroy(gameObject);
         }
-    }
-
-    public void SetExplosionForce(float num)
-    {
-        explosionForce = num;
-    }
-
-    public void SetExplosionForceUp(float num)
-    {
-        explosionForceUp = num;
-    }
-
-    public void SetExplosionRadius(float num)
-    {
-        explosionRadius = num;
-    }
-
-    public void SetExplosionDamage(float num)
-    {
-        explosionForceUp = num;
-    }
-
-    public void SetExplosionObject(GameObject gameObject)
-    {
-        explosionObject = gameObject;
-    }
-
-
-    public void SetCrystalObject(GameObject gameObject)
-    {
-        crystalObject = gameObject;
     }
 }
