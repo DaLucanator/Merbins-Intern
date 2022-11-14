@@ -18,6 +18,7 @@ public class BaseDefenseCrystal : MonoBehaviour
 
     public void SetCrystaLScale(float num)
     {
+        crystalScale = num;
         gameObject.transform.localScale *= num;
         health *= num;
     }
@@ -34,21 +35,14 @@ public class BaseDefenseCrystal : MonoBehaviour
     }
 
     //if I collide with a portal
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.GetComponent<BaseDefensePortal>() && isActive)
+        if (collider.gameObject.GetComponent<BaseDefensePortal>() && isActive)
         {
-            GameObject newCrystalRagdollObject = Instantiate(crystalRagdollObject, transform.position, Quaternion.identity);
+            GameObject newCrystalRagdollObject = Instantiate(crystalRagdollObject, collider.gameObject.transform.position, Quaternion.identity);
             CrystalRagdoll crystalRagdoll = newCrystalRagdollObject.GetComponent<CrystalRagdoll>();
 
-            crystalRagdoll.SetExplosionForce(explosionForce);
-            crystalRagdoll.SetExplosionForceUp(explosionForceUp);
-            crystalRagdoll.SetExplosionRadius(explosionRadius);
-            crystalRagdoll.SetExplosionDamage(explosionDamage);
-            crystalRagdoll.SetExplosionObject(explosionObject);
-
-            crystalRagdoll.SetCrystalScale(crystalScale);
-            crystalRagdoll.SetCrystalObject(crystalObject);
+            crystalRagdoll.SetCrystaLScale(crystalScale);
 
             crystalRagdoll.Activate();
 
@@ -81,10 +75,6 @@ public class BaseDefenseCrystal : MonoBehaviour
         explosionObject = gameObject;
     }
 
-    public void SetCrystalScale(float num)
-    {
-        crystalScale = num;
-    }
 
     public void SetCrystalObject(GameObject gameObject)
     {

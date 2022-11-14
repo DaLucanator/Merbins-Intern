@@ -77,8 +77,7 @@ public class BaseDefenseExplosion : MonoBehaviour
             crystal.SetExplosionDamage(explosionDamage);
             crystal.SetExplosionObject(explosionObject);
 
-            crystal.SetCrystalScale(crystalScale);
-            crystal.SetCrystalObject(crystalObject);
+            crystal.SetCrystaLScale(crystalScale);
 
             crystal.Activate();
         }
@@ -97,6 +96,7 @@ public class BaseDefenseExplosion : MonoBehaviour
                 {
                     if(hit.gameObject.GetComponent<BaseDefenseEnemy>().CheckifCanBeStruck())
                     {
+                        Debug.Log("pew2");
                         enemies.Add(hit.gameObject);
                     }
                 }
