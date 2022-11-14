@@ -14,7 +14,7 @@ public class BaseDefencePortalableObject : MonoBehaviour
     private BaseDefensePortal inPortal, outPortal;
     [SerializeField]private bool canPortal = true;
 
-    private static readonly Quaternion halfTurn = Quaternion.Euler(0f, 180f,180f);
+    private static readonly Quaternion halfTurn = Quaternion.Euler(0f, 180f,180f)  ;
 
     protected virtual void Awake()
     {

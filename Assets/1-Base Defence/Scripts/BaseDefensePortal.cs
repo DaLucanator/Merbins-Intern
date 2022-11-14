@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BaseDefensePortal : MonoBehaviour
 {
@@ -44,6 +45,15 @@ public class BaseDefensePortal : MonoBehaviour
     public BaseDefensePortal GetOtherPortal()
     {
         return otherPortal;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.GetComponent<Rigidbody>() && collision.gameObject.GetComponent<BaseDefenseCrystal>() == null)
+        {
+            if (collision.gameObject.GetComponent<NavMeshAgent>() != null) { collision.gameObject.GetComponent<NavMeshAgent>().enabled = false; }
+            collision.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        }
     }
 
 
