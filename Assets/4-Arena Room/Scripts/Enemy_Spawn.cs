@@ -19,7 +19,7 @@ public class Enemy_Spawn : MonoBehaviour
     {
         GameObject G0_Current = (GameObject)Instantiate(G0_Enemy);
         G0_Current.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        if (spawnTime > -100)
+        if (spawnTime > -0)
         {
             StartCoroutine("waitForFewSeconds");
         }
