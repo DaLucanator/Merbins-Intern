@@ -22,15 +22,15 @@ public class BaseDefencePotion : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (potionIsActive && collision.gameObject.GetComponent<BaseDefensePortal>() == null)
+        if (collision.gameObject.GetComponent<BaseDefensePortal>() == null && collision.gameObject.GetComponent<BaseDefenseGround>())
         {
-            SpawnExplosion();
+            SpawnExplosion(collision.GetContact(0).point);
         }
     }
 
-    void SpawnExplosion()
+    void SpawnExplosion(Vector3 point)
     {
-        GameObject newExplosionObject = Instantiate(explosionObject, transform.position, Quaternion.identity);
+        GameObject newExplosionObject = Instantiate(explosionObject, point, Quaternion.identity);
         BaseDefenseExplosion explosion = newExplosionObject.GetComponent<BaseDefenseExplosion>();
 
         float modifier = lightningScale + 1f;
@@ -57,7 +57,7 @@ public class BaseDefencePotion : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void ActivatePotion()
+    public void ActivatePotion()
     {
         potionIsActive = true;
     }

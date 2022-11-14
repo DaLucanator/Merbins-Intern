@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 203535219244161719}
   m_Layer: 0
   m_Name: Level Loader
-  m_TagString: Untagged
+  m_TagString: LevelLoader
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f1dd3145efbed4fa2a4c752ef91738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: 
   timeToWait: 3
-  testLevelLoader: 0
   portalObject: {fileID: 1568735579298759792, guid: e62df783565e53a439382902c032d126, type: 3}

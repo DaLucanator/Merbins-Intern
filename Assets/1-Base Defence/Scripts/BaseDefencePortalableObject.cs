@@ -12,9 +12,9 @@ public class BaseDefencePortalableObject : MonoBehaviour
     private float portalVelocityMultiplier = 1f;
     private Rigidbody rb;
     private BaseDefensePortal inPortal, outPortal;
-    [SerializeField]private bool canPortal = true;
+    private bool canPortal = true;
 
-    private static readonly Quaternion halfTurn = Quaternion.Euler(0f, 180f,180f);
+    private static readonly Quaternion halfTurn = Quaternion.Euler(0f, 180f,180f)  ;
 
     protected virtual void Awake()
     {
@@ -23,7 +23,7 @@ public class BaseDefencePortalableObject : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if(canPortal)
+        if(canPortal && collider.GetComponent<BaseDefensePortal>())
         {
             inPortal = collider.GetComponent<BaseDefensePortal>();
             if (inPortal.IsActivated())
