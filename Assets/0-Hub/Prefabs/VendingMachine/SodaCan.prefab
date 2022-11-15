@@ -265,11 +265,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3615973233636265167}
   - component: {fileID: 7773605106881008670}
+  - component: {fileID: 2532480818661411303}
   - component: {fileID: 111658332253915913}
   - component: {fileID: 2701622063697385115}
   - component: {fileID: 552343630000069038}
   - component: {fileID: 4134539492148897918}
   - component: {fileID: 2747715168693177931}
+  - component: {fileID: 1243063425874947772}
   m_Layer: 0
   m_Name: SodaCan
   m_TagString: Untagged
@@ -285,8 +287,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3458418356078811932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.0019736, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 690883387464311950}
@@ -304,8 +306,21 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.1
-  m_Height: 0.4
+  m_Height: 0.32
   m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &2532480818661411303
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3458418356078811932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13, y: 0.32, z: 0.13}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &111658332253915913
 MonoBehaviour:
@@ -510,6 +525,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultPosition: {x: 0, y: 0, z: 0}
   defaultRotation: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1243063425874947772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3458418356078811932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e87d247be4a3604a9124f72d05145aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3835813436308978239
 GameObject:
   m_ObjectHideFlags: 0

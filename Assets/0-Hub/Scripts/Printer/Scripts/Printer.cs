@@ -62,7 +62,7 @@ public class Printer : MonoBehaviour
                 itemSlotProceed = Instantiate(item.GetComponent<Item>().resultItem, SpawnPointProceed.transform.position, SpawnPointProceed.transform.rotation);
                 itemSlotProceed.gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = item.GetComponent<Item>().material;
                 itemSlotProceed.name = item.GetComponent<Item>().resultItem.name.Replace("(Clone)", "").Trim();
-                itemSlotProceed.transform.localScale = item.transform.localScale;
+                // itemSlotProceed.transform.localScale = item.transform.localScale;
 
                 catalogPrintedItems.Add(itemSlotProceed);
 
