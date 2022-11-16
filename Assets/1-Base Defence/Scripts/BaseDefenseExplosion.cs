@@ -46,8 +46,6 @@ public class BaseDefenseExplosion : MonoBehaviour
             GameObject portal1Object = Instantiate(portalObject, transform.position, Quaternion.identity);
             BaseDefensePortal portal1 = portal1Object.GetComponent<BaseDefensePortal>();
 
-            portal2Object = GameObject.Find("Portal");
-
             portal2Object.SetActive(true);
             portal1Object.SetActive(true);
 

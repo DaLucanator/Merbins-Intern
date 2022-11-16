@@ -31,4 +31,16 @@ public class BaseDefenseEnemySpawner : MonoBehaviour
 
         SpawnEnemy();
     }
+
+    public void ReduceSpawnDelay(float reduceAmount)
+    {
+
+    }
+
+    public float GetSpawnDelayBase()
+    {
+        return spawnDelayBase;
+    }
+
+
 }
