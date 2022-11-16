@@ -9,20 +9,23 @@ public class Destruction : MonoBehaviour
 
     float count = 0f;
 
+    public bool off;
+
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag.Equals("DestrucTrigger"))
+        if (off != true)
         {
-            
-            Destroy(collision.gameObject);
-            Death_Goblin.Play();
-            count = count + 1;
-            
+            if (collision.gameObject.tag.Equals("DestrucTrigger"))
+            {
+
+                Destroy(collision.gameObject);
+                Death_Goblin.Play();
+                count = count + 1;
+
+            }
+
+            Debug.Log(count);
         }
-        
-        Debug.Log(count);
-
-
     }
     
    
