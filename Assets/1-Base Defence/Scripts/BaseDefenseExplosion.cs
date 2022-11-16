@@ -120,8 +120,26 @@ public class BaseDefenseExplosion : MonoBehaviour
                 explosion.SetCrystalObject(crystalObject);
 
                 explosion.Explode();
+
+                Vector3 height = new Vector3(0, 100f, 0);
+                DrawLine(objectToHit.position + height, objectToHit.position, Color.white, 0.2f, 1f);
             }
         }
+    }
+
+    void DrawLine(Vector3 start, Vector3 end, Color color, float duration, float lineWidth)
+    {
+        GameObject myLine = new GameObject();
+        myLine.transform.position = start;
+        myLine.AddComponent<LineRenderer>();
+        LineRenderer lr = myLine.GetComponent<LineRenderer>();
+        lr.startColor = color;
+        lr.endColor = color;
+        lr.startWidth = lineWidth;
+        lr.endWidth = lineWidth;
+        lr.SetPosition(0, start);
+        lr.SetPosition(1, end);
+        GameObject.Destroy(myLine, duration);
     }
 
     public void SetExplosionForce(float num)

@@ -37711,7 +37711,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnDelayBase: 5
-  spawnDelayRandomMod: 0.1
   enemyRagdoll: {fileID: 4857026720837510748, guid: bb1775ed0d26d0944bdbbcc9a725019e, type: 3}
   spawnPos: {fileID: 700305587}
 --- !u!1 &3860852300989280113
@@ -46108,7 +46107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8144306064029505428, guid: b0d8685b91de7cc4ea0a80cbdf1b24c2, type: 3}
       propertyPath: portalScale
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8144306064029505428, guid: b0d8685b91de7cc4ea0a80cbdf1b24c2, type: 3}
       propertyPath: crystalScale
@@ -46118,6 +46117,10 @@ PrefabInstance:
       propertyPath: portal2Object
       value: 
       objectReference: {fileID: 1614391261}
+    - target: {fileID: 8144306064029505428, guid: b0d8685b91de7cc4ea0a80cbdf1b24c2, type: 3}
+      propertyPath: lightningScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8144306064029505428, guid: b0d8685b91de7cc4ea0a80cbdf1b24c2, type: 3}
       propertyPath: explosionDamage
       value: 1

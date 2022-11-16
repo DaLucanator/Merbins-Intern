@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class BaseDefenseEnemySpawner : MonoBehaviour
 {
-    [SerializeField] float spawnDelayBase, spawnDelayRandomMod;
+    [SerializeField] float spawnDelayBase;
     [SerializeField] GameObject enemyRagdoll;
     [SerializeField] Transform spawnPos;
+
+    private float spawnDelayRandomMod;
 
     void Start()
     {
@@ -34,7 +36,8 @@ public class BaseDefenseEnemySpawner : MonoBehaviour
 
     public void ReduceSpawnDelay(float reduceAmount)
     {
-
+        spawnDelayBase -= reduceAmount;
+        spawnDelayRandomMod = spawnDelayBase / 2f;
     }
 
     public float GetSpawnDelayBase()

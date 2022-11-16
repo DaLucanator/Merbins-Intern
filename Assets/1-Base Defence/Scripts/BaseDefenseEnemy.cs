@@ -45,11 +45,15 @@ public class BaseDefenseEnemy : MonoBehaviour
 
     private void Update()
     {
-        if(agent.remainingDistance < 0.1f && isProtester)
+        if(GetComponent<Rigidbody>().isKinematic == true && isProtester)
         {
-            protesterNum++;
-            if(protesterNum >= protesterTransforms.Length) { protesterNum = 0; }
-            agent.SetDestination(protesterTransforms[protesterNum].position);
+            if(agent.remainingDistance < 0.1f)
+            {
+                protesterNum++;
+                if (protesterNum >= protesterTransforms.Length) { protesterNum = 0; }
+                agent.SetDestination(protesterTransforms[protesterNum].position);
+            }
+
         }
         if (GetComponent<Rigidbody>().isKinematic == false && isProtester)
         {
@@ -84,20 +88,7 @@ public class BaseDefenseEnemy : MonoBehaviour
         canBeStruckByLightning = true;
     }
 
-    void DrawLine(Vector3 start, Vector3 end, Color color, float duration, float lineWidth)
-    {
-        GameObject myLine = new GameObject();
-        myLine.transform.position = start;
-        myLine.AddComponent<LineRenderer>();
-        LineRenderer lr = myLine.GetComponent<LineRenderer>();
-        lr.startColor = color;
-        lr.endColor = color;
-        lr.startWidth = lineWidth;
-        lr.endWidth = lineWidth;
-        lr.SetPosition(0, start);
-        lr.SetPosition(1, end);
-        GameObject.Destroy(myLine, duration);
-    }
+
 
     private void OnCollisionStay(Collision collision)
     {
