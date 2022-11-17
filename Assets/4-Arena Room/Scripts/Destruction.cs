@@ -24,7 +24,7 @@ public class Destruction : MonoBehaviour
             Death_Goblin.Play();
             count = count + 1;
             //cube.SetActive(true);
-            Invoke("Main", delay);
+            //Invoke("Main", delay);
 
         }
         
