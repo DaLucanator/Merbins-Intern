@@ -17,6 +17,8 @@ public class BaseDefenseExplosion : MonoBehaviour
     private float crystalScale;
     private GameObject crystalObject;
 
+    [SerializeField] private Transform portalTransform;
+
     // Update is called once per frame
     public void Explode()
     {
@@ -45,6 +47,9 @@ public class BaseDefenseExplosion : MonoBehaviour
         {
             GameObject portal1Object = Instantiate(portalObject, transform.position, Quaternion.identity);
             BaseDefensePortal portal1 = portal1Object.GetComponent<BaseDefensePortal>();
+
+            Quaternion halfTurn = Quaternion.Euler(0f, 90f, 00f);   
+            GameObject Portal2Object = Instantiate(portalObject, portalTransform.position, halfturn);
 
             portal2Object.SetActive(true);
             portal1Object.SetActive(true);
