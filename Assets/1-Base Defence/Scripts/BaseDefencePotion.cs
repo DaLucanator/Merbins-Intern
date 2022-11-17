@@ -16,7 +16,6 @@ public class BaseDefencePotion : MonoBehaviour
 
     [SerializeField] private float portalScale;
     [SerializeField] private GameObject portalObject;
-    [SerializeField] private GameObject portal2Object;
 
     [SerializeField] private bool potionIsActive;
 
@@ -44,7 +43,6 @@ public class BaseDefencePotion : MonoBehaviour
 
         explosion.setPortalScale(portalScale);
         explosion.SetPortalObject(portalObject);
-        explosion.SetPortal2Object(portal2Object);
 
         explosion.SetLightningScale(lightningScale);
         explosion.SetlightningStrikeDistance(lightningStrikeDistance); ;
