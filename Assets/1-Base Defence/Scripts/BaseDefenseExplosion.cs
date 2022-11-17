@@ -10,7 +10,6 @@ public class BaseDefenseExplosion : MonoBehaviour
 
     private float portalScale;
     private GameObject portalObject;
-    private GameObject portal2Object;
 
     private float lightningScale, lightningStrikeDistance;
     
@@ -43,14 +42,21 @@ public class BaseDefenseExplosion : MonoBehaviour
         //Portal
         if (portalScale > 0)
         {
+            Quaternion halfTurn = Quaternion.Euler(0f, 0f, 90f);   
+            Vector3 spawnPos = new Vector3(101,15,15);
+
+            GameObject portal2Object = Instantiate(portalObject, spawnPos, halfTurn);
+            BaseDefensePortal portal2 = portal2Object.GetComponent<BaseDefensePortal>();
+
             GameObject portal1Object = Instantiate(portalObject, transform.position, Quaternion.identity);
             BaseDefensePortal portal1 = portal1Object.GetComponent<BaseDefensePortal>();
 
+
+
             portal2Object.SetActive(true);
             portal1Object.SetActive(true);
-
-            BaseDefensePortal portal2 = portal2Object.GetComponent<BaseDefensePortal>();
             portal1.SetPortalScale(explosionRadius);
+            portal2.SetPortalScale(5f);
 
             portal1.SetOtherPortal(portal2);
             portal2.SetOtherPortal(portal1);
@@ -111,7 +117,6 @@ public class BaseDefenseExplosion : MonoBehaviour
 
                 explosion.setPortalScale(portalScale);
                 explosion.SetPortalObject(portalObject);
-                explosion.SetPortal2Object(portal2Object);
 
                 explosion.SetLightningScale(lightningScale);
                 explosion.SetlightningStrikeDistance(lightningStrikeDistance);
@@ -175,11 +180,6 @@ public class BaseDefenseExplosion : MonoBehaviour
     public void SetPortalObject(GameObject portal)
     {
         portalObject = portal;
-    }
-
-    public void SetPortal2Object(GameObject portal)
-    {
-        portal2Object = portal;
     }
 
     public void SetLightningScale(float num)
