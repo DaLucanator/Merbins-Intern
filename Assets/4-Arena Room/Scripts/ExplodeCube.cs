@@ -38,6 +38,7 @@ public class ExplodeCube : MonoBehaviour
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         //Renderer rd = cube.GetComponent<Renderer>().material;
         //rd.material = GetComponent<Renderer>().material;
+        //cube.GetComponent<Renderer>().material.color = Color.green;
 
         cube.transform.localScale = transform.localScale / cubesPerAxis;
 
@@ -46,7 +47,6 @@ public class ExplodeCube : MonoBehaviour
 
         Rigidbody rb = cube.AddComponent<Rigidbody>();
         rb.AddExplosionForce(force, transform.position, radius);
-
 
 
 
