@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PickupObjective : MonoBehaviour
 {
-    Vector3 lastPos;
-    float inUse;
-    bool wasinUse;
+    [SerializeField] Vector3 lastPos;
+    [SerializeField] float inUse;
     
 
 
@@ -39,7 +38,8 @@ public class PickupObjective : MonoBehaviour
 
     private void OnEnable()
     {
-        lastPos = transform.position; 
+        lastPos = transform.position;
+        switchActiveTo(false);
     }
 
 
@@ -52,19 +52,17 @@ public class PickupObjective : MonoBehaviour
             if (inUse > 0f)
             {
                 inUse += 1;
-                wasinUse = false;
-                switchActiveTo(wasinUse);
+                switchActiveTo(true);
             }
             lastPos = transform.position;
         }
         else
         {
             inUse -= Time.deltaTime;
-            if (inUse > 0f)
+            if (inUse < 0f)
             {
                 inUse -= 1;
-                wasinUse = true;
-                switchActiveTo(wasinUse);
+                switchActiveTo(false);
             }
         }
         inUse=Mathf.Clamp(inUse, -1, 1);
@@ -80,6 +78,7 @@ public class PickupObjective : MonoBehaviour
         {
             obj.SetActive(!activity);
         }
+        GameObject.FindGameObjectWithTag("CleaningManager").GetComponent<L2_CleaningManager>().otherActivityChange(gameObject,activity);
     }
 
 

@@ -8,7 +8,7 @@ public class L2_Filth : MonoBehaviour
     [SerializeField] L2_SpongeScript sponge;
     [SerializeField] Vector3 v_axisOfFreedom;
     [SerializeField] float f_cleanMaxAmount = 100;
-    float f_cleanProgress = 100;
+    [SerializeField] float f_cleanProgress = 100;
     Vector3 v_startScale;
  
 
@@ -54,6 +54,7 @@ public class L2_Filth : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         sponge.FilthCleaned();
         Destroy(gameObject);
+        Debug.Log("AsDASAD");
 
     }
 

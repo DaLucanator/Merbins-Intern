@@ -1,10 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class L2_CleaningManager : MonoBehaviour
 {
+    [Header("PickupParticles")]
+
+    List<GameObject> PUObjs = new List<GameObject>();
+
+
     /*[Header("Dependencies")]
 
     [SerializeField] L2_Bin RubbishManager;
@@ -59,17 +65,24 @@ public class L2_CleaningManager : MonoBehaviour
     }
 
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    public void otherActivityChange(GameObject from,bool activity)
     {
-        
+        int reference = PUObjs.IndexOf(from);
+
+        for (int i = 0; i<PUObjs.Count; i++)
+        {
+            if (reference != i)
+            {
+                PUObjs[i].GetComponent<PickupObjective>().OtherUsed(activity);
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void OnEnable()
     {
-        
+
+
+        PUObjs = GameObject.FindGameObjectsWithTag("L2_PickupManager").ToList<GameObject>(); 
     }
 }
