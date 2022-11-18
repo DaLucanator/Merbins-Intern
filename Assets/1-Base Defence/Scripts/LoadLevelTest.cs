@@ -20,7 +20,7 @@ public class LoadLevelTest : MonoBehaviour
     {
         if (other.CompareTag("Touch"))
         {
-            levelLoader.LoadLevel("Hub");
+            levelLoader.LoadLevel("HUB_GreyBox");
         }
     }
 }
