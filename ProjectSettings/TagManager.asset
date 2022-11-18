@@ -4,12 +4,20 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - DestrucTrigger
+  - erCrystal1
+  - erCrystal2
+  - erCrystal3
+  - KeypadButton
+  - Display
+  - Keypad
+  - Touch
+  - LevelLoader
+  - L2_RemodelData
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NavMesh
   - Water
   - UI
   - 
@@ -37,7 +45,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Teleport
   m_SortingLayers:
   - name: Default
     uniqueID: 0

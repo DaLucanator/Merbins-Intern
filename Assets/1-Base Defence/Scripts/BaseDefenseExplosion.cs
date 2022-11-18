@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BaseDefenseExplosion : MonoBehaviour
 {
     private float explosionForce, explosionForceUp, explosionRadius, explosionDamage;
     private GameObject explosionObject;
+
+    private float portalScale;
+    private GameObject portalObject;
+    private GameObject portal2Object;
 
     private float lightningScale, lightningStrikeDistance;
     
@@ -22,8 +27,10 @@ public class BaseDefenseExplosion : MonoBehaviour
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             BaseDefenseEnemy enemy = hit.GetComponent<BaseDefenseEnemy>();
 
-            if (rb != null)
+            if (rb != null && hit.GetComponent<BaseDefenseCrystal>() == null)
             {
+                rb.isKinematic = false;
+                if (hit.gameObject.GetComponent<NavMeshAgent>() != null) { hit.gameObject.GetComponent<NavMeshAgent>().enabled = false; }
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionForceUp);
             }
 
@@ -33,23 +40,53 @@ public class BaseDefenseExplosion : MonoBehaviour
             }
         }
 
+        //Portal
+        if (portalScale > 0)
+        {
+            GameObject portal1Object = Instantiate(portalObject, transform.position, Quaternion.identity);
+            BaseDefensePortal portal1 = portal1Object.GetComponent<BaseDefensePortal>();
+
+            portal2Object.SetActive(true);
+            portal1Object.SetActive(true);
+
+            BaseDefensePortal portal2 = portal2Object.GetComponent<BaseDefensePortal>();
+            portal1.SetPortalScale(explosionRadius);
+
+            portal1.SetOtherPortal(portal2);
+            portal2.SetOtherPortal(portal1);
+
+            portal2.Activate(portalScale, false);
+            portal1.Activate(portalScale, true);
+        }
+        //instantiate the portal in the list of portals
+        //remove that portal from the list of portals
+        //add that portal back into the list of portals after portalscale time
+        //activate portal2
+        //activate portal
+
+
         //Spawn Crystal
         if (crystalScale > 0f)
         {
-            Debug.Log(transform.position.ToString());
             GameObject newCrystal = Instantiate(crystalObject, transform.position, Quaternion.identity);
             BaseDefenseCrystal crystal = newCrystal.GetComponent<BaseDefenseCrystal>();
+
+            crystal.SetExplosionForce(explosionForce);
+            crystal.SetExplosionForceUp(explosionForceUp);
+            crystal.SetExplosionRadius(explosionRadius);
+            crystal.SetExplosionDamage(explosionDamage);
+            crystal.SetExplosionObject(explosionObject);
+
             crystal.SetCrystaLScale(crystalScale);
+
+            crystal.Activate();
         }
 
         //lightning Strike
         if (lightningScale > 0f)
         {
-            Debug.Log("kerchoo");
-
+            Debug.Log("pew");
             lightningScale -= 1f;
-
-            StartCoroutine(WaitForLightning());
 
             Collider[] colliders2 = Physics.OverlapSphere(transform.position, lightningStrikeDistance);
             List<GameObject> enemies = new List<GameObject>();
@@ -59,6 +96,7 @@ public class BaseDefenseExplosion : MonoBehaviour
                 {
                     if(hit.gameObject.GetComponent<BaseDefenseEnemy>().CheckifCanBeStruck())
                     {
+                        Debug.Log("pew2");
                         enemies.Add(hit.gameObject);
                     }
                 }
@@ -66,7 +104,7 @@ public class BaseDefenseExplosion : MonoBehaviour
 
             if(enemies.Count > 0)
             {
-                Transform objectToHit = colliders2[Random.Range(0, enemies.Count)].transform;
+                Transform objectToHit = enemies[Random.Range(0, enemies.Count)].transform;
 
                 GameObject newExplosionObject = Instantiate(explosionObject, objectToHit.position, Quaternion.identity);
                 BaseDefenseExplosion explosion = newExplosionObject.GetComponent<BaseDefenseExplosion>();
@@ -77,6 +115,10 @@ public class BaseDefenseExplosion : MonoBehaviour
                 explosion.SetExplosionDamage(explosionDamage);
                 explosion.SetExplosionObject(explosionObject);
 
+                explosion.setPortalScale(portalScale);
+                explosion.SetPortalObject(portalObject);
+                explosion.SetPortal2Object(portal2Object);
+
                 explosion.SetLightningScale(lightningScale);
                 explosion.SetlightningStrikeDistance(lightningStrikeDistance);
 
@@ -86,11 +128,6 @@ public class BaseDefenseExplosion : MonoBehaviour
                 explosion.Explode();
             }
         }
-    }
-
-    IEnumerator WaitForLightning()
-    {
-        yield return new WaitForSeconds(0.2f);
     }
 
     public void SetExplosionForce(float num)
@@ -116,6 +153,21 @@ public class BaseDefenseExplosion : MonoBehaviour
     public void SetExplosionObject(GameObject gameObject)
     {
         explosionObject = gameObject;
+    }
+
+    public void setPortalScale(float num)
+    {
+        portalScale = num;
+    }
+
+    public void SetPortalObject(GameObject portal)
+    {
+        portalObject = portal;
+    }
+
+    public void SetPortal2Object(GameObject portal)
+    {
+        portal2Object = portal;
     }
 
     public void SetLightningScale(float num)
