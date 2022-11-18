@@ -13,6 +13,7 @@ TagManager:
   - Touch
   - LevelLoader
   - L2_RemodelData
+  - Floor
   layers:
   - Default
   - TransparentFX
