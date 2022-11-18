@@ -37,7 +37,7 @@ public class ERFuseBox : MonoBehaviour
     	{
         	//power turned on
         	Debug.Log("You turned on the power!");
-        	levelLoader.LoadLevel("Hub");
+        	levelLoader.LoadLevel("HUB_GreyBox");
     	}
     	else
     	{
