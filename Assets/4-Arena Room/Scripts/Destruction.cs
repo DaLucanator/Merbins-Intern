@@ -6,62 +6,79 @@ public class Destruction : MonoBehaviour
 {
 
     public AudioSource Death_Goblin;
-    public GameObject cube;
+    //public GameObject cube;
 
-    public int cubesPerAxis = 100;
-    public float delay = 0.1f;
-    public float force = 600f;
-    public float radius = 7f;
+    // public int cubesPerAxis = 100;
+    // public float delay = 0.1f;
+    // public float force = 600f;
+    //  public float radius = 7f;
 
-    float count = 0f;
+    private int count;
 
-    void OnCollisionEnter(Collision collision)
+    /* void OnCollisionEnter(Collision collision)
+     {
+         if (collision.gameObject.tag.Equals("DestrucTrigger"))
+         {
+
+             other.gameObject.SetActive(false);
+             //Death_Goblin.Play();
+             count = count + 1;
+             //cube.SetActive(true);
+             //Invoke("Main", delay);
+
+         }
+
+         Debug.Log(count);
+
+     }
+    */
+
+
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag.Equals("DestrucTrigger"))
+        if (other.gameObject.CompareTag("DestrucTrigger"))
+
         {
-            
-            Destroy(collision.gameObject);
+            other.gameObject.SetActive(false);
             Death_Goblin.Play();
             count = count + 1;
-            //cube.SetActive(true);
-            //Invoke("Main", delay);
-
+            Debug.Log(count);
         }
-        
-        Debug.Log(count);
 
-    }
-    void Main()
-    {
-        for (int x = 0; x < cubesPerAxis; x++)
-        {
-            for (int y = 0; y < cubesPerAxis; y++)
+        /*
+            void Main()
             {
-                for (int z = 0; z < cubesPerAxis; z++)
+                for (int x = 0; x < cubesPerAxis; x++)
                 {
-                    CreateCube(new Vector3(x, y, z));
+                    for (int y = 0; y < cubesPerAxis; y++)
+                    {
+                        for (int z = 0; z < cubesPerAxis; z++)
+                        {
+                            CreateCube(new Vector3(x, y, z));
+                        }
+                    }
                 }
+                //Destroy(gameObject);
+
             }
-        }
-        //Destroy(gameObject);
 
+            void CreateCube(Vector3 coordinates)
+            {
+                GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                //Renderer rd = cube.GetComponent<Renderer>().material;
+                //rd.material = GetComponent<Renderer>().material;
+
+                cube.transform.localScale = transform.localScale / cubesPerAxis;
+
+                Vector3 firstCube = transform.position - transform.localScale / 2 + cube.transform.localScale / 2;
+                cube.transform.position = firstCube + Vector3.Scale(coordinates, cube.transform.localScale);
+
+                Rigidbody rb = cube.AddComponent<Rigidbody>();
+                rb.AddExplosionForce(force, transform.position, radius);
+
+            }
+
+        */
     }
-
-    void CreateCube(Vector3 coordinates)
-    {
-        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        //Renderer rd = cube.GetComponent<Renderer>().material;
-        //rd.material = GetComponent<Renderer>().material;
-
-        cube.transform.localScale = transform.localScale / cubesPerAxis;
-
-        Vector3 firstCube = transform.position - transform.localScale / 2 + cube.transform.localScale / 2;
-        cube.transform.position = firstCube + Vector3.Scale(coordinates, cube.transform.localScale);
-
-        Rigidbody rb = cube.AddComponent<Rigidbody>();
-        rb.AddExplosionForce(force, transform.position, radius);
-
-    }
-
 
 }
