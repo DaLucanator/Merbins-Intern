@@ -6,7 +6,7 @@ public class Destruction : MonoBehaviour
 {
 
     public AudioSource Death_Goblin;
-    //public GameObject cube;
+    public GameObject deathParticles;
 
     // public int cubesPerAxis = 100;
     // public float delay = 0.1f;
@@ -39,10 +39,15 @@ public class Destruction : MonoBehaviour
         if (other.gameObject.CompareTag("DestrucTrigger"))
 
         {
+            Instantiate(deathParticles, transform.position, transform.rotation);
+
             other.gameObject.SetActive(false);
             Death_Goblin.Play();
             count = count + 1;
             Debug.Log(count);
+            //Instantiate(cube); //cube.SetActive(true);
+
+           
         }
 
         /*
