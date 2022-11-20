@@ -41,6 +41,7 @@ public class L2_Filth : MonoBehaviour
         transform.localScale = v_startScale * (f_cleanProgress / f_cleanMaxAmount);
         if(f_cleanProgress / f_cleanMaxAmount <= 0.05)
         {
+            sponge.interacting(false, Vector3.zero, this);
             StartCoroutine(Done());
         }
     }

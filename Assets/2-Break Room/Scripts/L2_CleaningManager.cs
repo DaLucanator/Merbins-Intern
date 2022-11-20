@@ -54,26 +54,45 @@ public class L2_CleaningManager : MonoBehaviour
             //allow remodeling
             finished = true;
         }
+        Done();
+        
+
+
+
+    }
+    void Done()
+    {
         objfilth.SetActive(!filth);
         objgarbage.SetActive(!garbage);
         objdish.SetActive(!dishes);
         objfood.SetActive(!food);
         objfin.SetActive(finished);
 
-
-
+        foreach(GameObject obj in PUObjs)
+        {
+            if(obj.name != "Wand")
+            {
+                obj.GetComponent<PickupObjective>().controlAll(false);
+            }
+        }
     }
 
-
-    public void otherActivityChange(GameObject from,bool activity)
+    public void otherActivityChange(GameObject from,bool used)
     {
+        Debug.Log(3);
         int reference = PUObjs.IndexOf(from);
 
         for (int i = 0; i<PUObjs.Count; i++)
         {
+            if (PUObjs[i] == null)
+            {
+                PUObjs.RemoveAt(i);
+                continue;
+            }
+
             if (reference != i)
             {
-                PUObjs[i].GetComponent<PickupObjective>().OtherUsed(activity);
+                PUObjs[i].GetComponent<PickupObjective>().OtherUsed(used);
             }
         }
     }
@@ -83,6 +102,7 @@ public class L2_CleaningManager : MonoBehaviour
     {
 
 
-        PUObjs = GameObject.FindGameObjectsWithTag("L2_PickupManager").ToList<GameObject>(); 
+        PUObjs = GameObject.FindGameObjectsWithTag("L2_PickupManager").ToList<GameObject>();
+        Debug.Log(GameObject.FindGameObjectsWithTag("L2_PickupManager")[0]);
     }
 }

@@ -12,6 +12,7 @@ public class L2_Bin : MonoBehaviour
     {
         if(other.gameObject.GetComponent<L2_Rubbish>())
         {
+            other.GetComponent<PickupObjective>().switchActiveTo(false);
             Destroy(other.gameObject);
             i_RubbishQuantity--;
             if (i_RubbishQuantity <= 0)

@@ -5,7 +5,7 @@ using UnityEngine;
 public class L2_SpongeScript : MonoBehaviour
 {
     //[SerializeField] GameObject[] filth;
-    bool currentlyInteracting;
+    [SerializeField] bool currentlyInteracting;
     Vector3 lastPosition;
 
     Rigidbody rb;
@@ -28,9 +28,11 @@ public class L2_SpongeScript : MonoBehaviour
     public void interacting(bool value, Vector3 freedomAxis, L2_Filth filth)
     {
         currentlyInteracting = value;
+        currentFilth = !value ? null : currentFilth;
         currentAxis = freedomAxis;
         currentFilth = filth;
         lastPosition = transform.position;
+        
 
     }
 
@@ -46,7 +48,12 @@ public class L2_SpongeScript : MonoBehaviour
             f_ScrubValue *= 1;
             lastPosition = transform.position;
 
-            currentFilth.cleanProgress(f_ScrubValue);
+            if (currentFilth != null)
+            {
+                currentFilth.cleanProgress(f_ScrubValue);
+            }
+
+            
 
 
         }

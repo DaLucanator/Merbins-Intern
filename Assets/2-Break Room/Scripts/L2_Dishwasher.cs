@@ -15,6 +15,7 @@ public class L2_Dishwasher : MonoBehaviour
             i_washQuantity--;
             cleanedObjects.Add(other.gameObject);
             washable.doneParticles();
+            other.GetComponent<PickupObjective>().canTurnOn = false;
 
             if (i_washQuantity <= 0)
             {
@@ -24,6 +25,7 @@ public class L2_Dishwasher : MonoBehaviour
                 //destroy all objects
                 foreach (GameObject obj in cleanedObjects)
                 {
+                    //obj.GetComponent<PickupObjective>().switchActiveTo(false);
                     Destroy(obj);
                 }
                 
@@ -32,11 +34,13 @@ public class L2_Dishwasher : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        cleanedObjects.Remove(other.gameObject);
+        
 
-        if (other.gameObject.GetComponent<L2_Rubbish>())
+        if (other.gameObject.GetComponent<L2_Washable>())
         {
+            cleanedObjects.Remove(other.gameObject);
             i_washQuantity++;
+            other.GetComponent<PickupObjective>().canTurnOn = true;
         }
     }
 
