@@ -28,6 +28,10 @@ public class PickupObjective : MonoBehaviour
         {
             foreach (GameObject obj in showOnUse)
             {
+                if(showOnUse == null)
+                {
+                    Debug.Log(gameObject);
+                }
                 obj.SetActive(false);
             }
             foreach (GameObject obj in hideOnUse)
