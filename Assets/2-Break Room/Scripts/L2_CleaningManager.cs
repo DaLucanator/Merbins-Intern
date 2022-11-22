@@ -1,10 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class L2_CleaningManager : MonoBehaviour
 {
+    [Header("PickupParticles")]
+
+    List<GameObject> PUObjs = new List<GameObject>();
+
+
     /*[Header("Dependencies")]
 
     [SerializeField] L2_Bin RubbishManager;
@@ -48,28 +54,55 @@ public class L2_CleaningManager : MonoBehaviour
             //allow remodeling
             finished = true;
         }
+        Done();
+        
+
+
+
+    }
+    void Done()
+    {
         objfilth.SetActive(!filth);
         objgarbage.SetActive(!garbage);
         objdish.SetActive(!dishes);
         objfood.SetActive(!food);
         objfin.SetActive(finished);
 
+        foreach(GameObject obj in PUObjs)
+        {
+            if(obj.name != "Wand")
+            {
+                obj.GetComponent<PickupObjective>().controlAll(false);
+            }
+        }
+    }
 
+    public void otherActivityChange(GameObject from,bool used)
+    {
+        Debug.Log(3);
+        int reference = PUObjs.IndexOf(from);
 
+        for (int i = 0; i<PUObjs.Count; i++)
+        {
+            if (PUObjs[i] == null)
+            {
+                PUObjs.RemoveAt(i);
+                continue;
+            }
+
+            if (reference != i)
+            {
+                PUObjs[i].GetComponent<PickupObjective>().OtherUsed(used);
+            }
+        }
     }
 
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        PUObjs = GameObject.FindGameObjectsWithTag("L2_PickupManager").ToList<GameObject>();
+        Debug.Log(GameObject.FindGameObjectsWithTag("L2_PickupManager")[0]);
     }
 }

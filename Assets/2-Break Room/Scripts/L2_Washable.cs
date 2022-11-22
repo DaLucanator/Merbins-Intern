@@ -4,19 +4,9 @@ using UnityEngine;
 
 public class L2_Washable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] GameObject donePrefab;
     public void doneParticles()
     {
-
+        Instantiate(donePrefab, transform.position, Quaternion.identity) ;
     }
 }

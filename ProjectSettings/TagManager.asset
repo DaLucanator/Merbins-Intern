@@ -13,6 +13,9 @@ TagManager:
   - Touch
   - LevelLoader
   - L2_RemodelData
+  - Fire
+  - CleaningManager
+  - L2_PickupManager
   layers:
   - Default
   - TransparentFX
