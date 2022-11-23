@@ -119,7 +119,7 @@ MonoBehaviour:
   explosionRadius: 3
   explosionDamage: 1
   explosionScale: 0.1
-  explosionObject: {fileID: 4937704902572006584, guid: 5fd34bf396b5f3c4ba2d7c743a4c6e13, type: 3}
+  explosionObject: {fileID: 6277998325568155065, guid: c6ca61d2ccc8cb84589738b8e2189eb0, type: 3}
   lightningScale: 1
   lightningStrikeDistance: 1000
   crystalScale: 0

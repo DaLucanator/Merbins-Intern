@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class BaseDefenseCrystal : MonoBehaviour
 {
-    [SerializeField] private float health = 5f;
     [SerializeField] private GameObject crystalRagdollObject;
 
     [SerializeField] private float explosionForce, explosionForceUp, explosionRadius, explosionDamage;
@@ -13,6 +12,13 @@ public class BaseDefenseCrystal : MonoBehaviour
 
     [SerializeField] private GameObject lightningVFX;
     [SerializeField] private GameObject explosionVFX;
+
+    [SerializeField] private float healthMod;
+    private float maxHealth;
+    private float currentHealth;
+
+    private Material material;
+    private Renderer[] renderers;
 
     private float crystalScale;
 
@@ -22,8 +28,8 @@ public class BaseDefenseCrystal : MonoBehaviour
 
     void Start()
     {
-        Material material = new Material(Shader.Find("Standard"));
-        Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+        material = new Material(Shader.Find("Standard"));
+        renderers = gameObject.GetComponentsInChildren<Renderer>();
 
         foreach(Renderer r in renderers)
         {
@@ -37,7 +43,9 @@ public class BaseDefenseCrystal : MonoBehaviour
     {
         crystalScale = num;
         gameObject.transform.localScale *= crystalScale;
-        health *= num;
+
+        maxHealth = healthMod * crystalScale;
+        currentHealth = maxHealth;
     }
 
     public void Activate()
@@ -74,9 +82,9 @@ public class BaseDefenseCrystal : MonoBehaviour
 
     void LoseHealth()
     {
-        health--;
+        currentHealth--;
 
-        if (health <= 0f)
+        if (currentHealth <= 0f)
         {
             Explode();
         }
