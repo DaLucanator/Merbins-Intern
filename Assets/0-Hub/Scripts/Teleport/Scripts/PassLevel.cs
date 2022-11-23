@@ -9,11 +9,21 @@ public class PassLevel : MonoBehaviour
 
     public void NextScene()
     {
-        if (sceneName != null) { SceneManager.LoadScene(sceneName); }
+        if (sceneName != null) 
+        { SceneManager.LoadScene(sceneName); }
     }
 
     public void QuitGame()
     {
         Application.Quit();
     }
-}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Touch"))
+        {
+            NextScene();
+        }
+    }
+
+        }

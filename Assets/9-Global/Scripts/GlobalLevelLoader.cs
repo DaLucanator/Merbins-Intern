@@ -16,7 +16,7 @@ public class GlobalLevelLoader : MonoBehaviour
 
     IEnumerator LoadLevelTimer(string levelToLoad)
     {
-        PortalEffect();
+        //PortalEffect();
 
         yield return new WaitForSeconds(timeToWait);
 
