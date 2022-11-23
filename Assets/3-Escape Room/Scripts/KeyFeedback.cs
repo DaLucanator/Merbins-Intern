@@ -8,6 +8,7 @@ using UnityEngine;
 public class KeyFeedback : MonoBehaviour
 {
     public bool keyHit = false;
+    private Collider keypadCollider;
 
     private Color originalColor;
     private Renderer rn;
@@ -24,6 +25,7 @@ public class KeyFeedback : MonoBehaviour
     {
         rn = GetComponent<Renderer>();
         originalColor = rn.material.color;
+        keypadCollider = GetComponent<Collider>();
 
         display = GameObject.FindGameObjectWithTag("Display").GetComponentInChildren<TextMeshProUGUI>();
         display.text = "";
@@ -38,10 +40,12 @@ public class KeyFeedback : MonoBehaviour
         {
             returnColor = Time.time + colorReturnTime;
             rn.material.color = Color.green;
+            keypadCollider.enabled = false;
             keyHit = false;
         } 
        if (rn.material.color != originalColor && returnColor < Time.time)
         {
+            keypadCollider.enabled = true;
             rn.material.color = originalColor;
         }
     }
