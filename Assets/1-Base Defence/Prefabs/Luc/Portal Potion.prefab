@@ -123,11 +123,12 @@ MonoBehaviour:
   lightningScale: 0
   lightningStrikeDistance: 1000
   crystalScale: 0
-  crystalObject: {fileID: 4455542343589622282, guid: 2f37b8f4a653de44fa4f15abb21e2525, type: 3}
+  crystalObject: {fileID: 6356747017897123182, guid: f832223e68e67aa42964f5694f97e143, type: 3}
   portalScale: 1
   portalObject: {fileID: 3860852300154137445, guid: 57450715c9e8d084aa6152edf554f41f, type: 3}
-  portal2Object: {fileID: 0}
   potionIsActive: 1
+  lightningVFX: {fileID: 4991226415656257925, guid: 9e5fe983f698b4e43a34c8e31f80d6ce, type: 3}
+  explosionVFX: {fileID: 1029683450922114, guid: 244718b58d7629344abc7a8987c2a9a1, type: 3}
 --- !u!54 &8144306064029505429
 Rigidbody:
   m_ObjectHideFlags: 0

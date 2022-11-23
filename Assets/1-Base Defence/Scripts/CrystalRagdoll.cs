@@ -11,6 +11,8 @@ public class CrystalRagdoll : MonoBehaviour
 
     private float crystalScale;
     [SerializeField] private GameObject crystalObject;
+    [SerializeField] private GameObject lightningVFX;
+    [SerializeField] private GameObject explosionVFX;
 
     private bool isActive;
 
@@ -29,7 +31,6 @@ public class CrystalRagdoll : MonoBehaviour
     public void SetCrystaLScale(float num)
     {
         crystalScale = num;
-        gameObject.transform.localScale *= explosionRadius;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -48,6 +49,9 @@ public class CrystalRagdoll : MonoBehaviour
 
             explosion.SetCrystalScale(crystalScale);
             explosion.SetCrystalObject(crystalObject);
+
+            explosion.SetLightningObject(lightningVFX);
+            explosion.SetExplosionVFX(explosionVFX);
 
             explosion.Explode();
             Destroy(gameObject);

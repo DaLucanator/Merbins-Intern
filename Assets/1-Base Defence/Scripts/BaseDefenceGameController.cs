@@ -10,6 +10,9 @@ public class BaseDefenceGameController : MonoBehaviour
     [SerializeField] GameObject enemyPortal;
     BaseDefenseEnemySpawner enemySpawner;
 
+    [SerializeField] Transform[] portal1;
+    [SerializeField] Transform[] portal2;
+
     private bool portalIsActive;
 
     void Awake()
@@ -34,6 +37,28 @@ public class BaseDefenceGameController : MonoBehaviour
     public void DeActivateEnemyPortal()
     {
         enemyPortal.SetActive(false);
+    }
+
+    public Transform GetPortal2Transform()
+    {
+        return portal2[Random.Range(0, portal2.Length)];
+    }
+
+    public Transform GetPortal1Transform(Transform transformToCompare)
+    {
+        Transform tMin = null;
+        float minDist = Mathf.Infinity;
+        Vector3 currentPos = transformToCompare.position;
+        foreach (Transform t in portal1)
+        {
+            float dist = Vector3.Distance(t.position, currentPos);
+            if (dist < minDist)
+            {
+                tMin = t;
+                minDist = dist;
+            }
+        }
+        return tMin;
     }
 
     private IEnumerator LevelTimer()

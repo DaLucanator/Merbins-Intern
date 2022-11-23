@@ -64,6 +64,14 @@ public class BaseDefenseEnemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+
+        StartCoroutine(DestroyMe());
+    }
+
+    IEnumerator DestroyMe()
+    {
+        yield return new WaitForSeconds(10f);
+        Destroy(gameObject);
     }
 
     public void LightningStrike()
@@ -77,10 +85,6 @@ public class BaseDefenseEnemy : MonoBehaviour
         return canBeStruckByLightning;
     }
 
-    public void Kill()
-    {
-        Destroy(gameObject);
-    }
 
     private IEnumerator LightningStrikeTimer()
     {

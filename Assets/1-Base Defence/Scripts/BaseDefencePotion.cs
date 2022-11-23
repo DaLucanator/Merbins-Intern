@@ -19,6 +19,10 @@ public class BaseDefencePotion : MonoBehaviour
 
     [SerializeField] private bool potionIsActive;
 
+    [SerializeField] private GameObject lightningVFX;
+    [SerializeField] private GameObject explosionVFX;
+
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<BaseDefensePortal>() == null && collision.gameObject.GetComponent<BaseDefenseGround>())
@@ -34,6 +38,7 @@ public class BaseDefencePotion : MonoBehaviour
 
         float modifier = lightningScale + 1f;
         float modifier2 = crystalScale + portalScale;
+        if (modifier2 <= 0f) { modifier2 = 1f; }
 
         explosion.SetExplosionForce(explosionForce * modifier2);
         explosion.SetExplosionForceUp(explosionForceUp * modifier2);
@@ -49,6 +54,9 @@ public class BaseDefencePotion : MonoBehaviour
 
         explosion.SetCrystalScale(crystalScale);
         explosion.SetCrystalObject(crystalObject);
+
+        explosion.SetLightningObject(lightningVFX);
+        explosion.SetExplosionVFX(explosionVFX);
 
         explosion.Explode();
 

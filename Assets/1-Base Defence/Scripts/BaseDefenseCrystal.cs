@@ -33,8 +33,10 @@ public class BaseDefenseCrystal : MonoBehaviour
     //if I collide with a portal
     private void OnTriggerEnter(Collider collider)
     {
+        Debug.Log("spawning ragdoll");
         if (collider.gameObject.GetComponent<BaseDefensePortal>() && isActive)
         {
+            isActive = false;
             Vector3 offsetVector = new Vector3(0, 5f, 0);
             GameObject newCrystalRagdollObject = Instantiate(crystalRagdollObject, collider.gameObject.transform.position + offsetVector, Quaternion.identity);
             CrystalRagdoll crystalRagdoll = newCrystalRagdollObject.GetComponent<CrystalRagdoll>();
