@@ -27,7 +27,7 @@ public class KeyPadControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        glass.SetActive(true);
+        //glass.SetActive(true);
         crystal.GetComponent<XRGrabInteractable>().enabled = false;
 
         if (randNumber == 1)
@@ -57,7 +57,8 @@ public class KeyPadControl : MonoBehaviour
     {
         if (accessGranted == true)
         {
-            glass.SetActive(false);
+            glass.GetComponent<Animator>().Play("OpenGlass");
+            //glass.SetActive(false);
             crystal.GetComponent<XRGrabInteractable>().enabled = true;
             accessGranted = false;
         }
