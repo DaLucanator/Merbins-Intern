@@ -13,6 +13,8 @@ public class BaseDefenceGameController : MonoBehaviour
     [SerializeField] Transform[] portal1;
     [SerializeField] Transform[] portal2;
 
+    public List<GameObject> allEnemies = new List<GameObject>();
+
     private bool portalIsActive;
 
     void Awake()

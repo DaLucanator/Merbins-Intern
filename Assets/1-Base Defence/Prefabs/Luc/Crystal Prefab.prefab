@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3197410167346324408}
   - component: {fileID: 3578091781317732078}
   - component: {fileID: -3492009908179930476}
+  - component: {fileID: -1037428602102329735}
   m_Layer: 0
   m_Name: Crystal Prefab
   m_TagString: Untagged
@@ -118,6 +119,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   crystalRagdollObject: {fileID: 8751261493364473683, guid: 24c03bc71ba79e6499dcb8f450efc8ef, type: 3}
+  explosionForce: 1000
+  explosionForceUp: 50
+  explosionRadius: 3
+  explosionDamage: 1
+  explosionObject: {fileID: 4937704902572006584, guid: 5fd34bf396b5f3c4ba2d7c743a4c6e13, type: 3}
+  lightningVFX: {fileID: 4991226415656257925, guid: 9e5fe983f698b4e43a34c8e31f80d6ce, type: 3}
+  explosionVFX: {fileID: 1029683450922114, guid: 244718b58d7629344abc7a8987c2a9a1, type: 3}
 --- !u!54 &-3492009908179930476
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -134,6 +142,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!208 &-1037428602102329735
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6356747017897123182}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.628, y: 0.21000001, z: 1.6680001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.21000001, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &350416629504235663
 PrefabInstance:
   m_ObjectHideFlags: 0

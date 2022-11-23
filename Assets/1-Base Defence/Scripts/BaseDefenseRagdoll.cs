@@ -30,7 +30,9 @@ public class BaseDefenseRagdoll : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(getUpTimerMin,getUpTimerMax));
 
-        Instantiate(enemy, gameObject.transform.position, rotation);
+        GameObject enemyObject = Instantiate(enemy, gameObject.transform.position, rotation);
+        BaseDefenceGameController.current.allEnemies.Add(enemyObject);
+
         Destroy(gameObject);
 
         StopAllCoroutines();

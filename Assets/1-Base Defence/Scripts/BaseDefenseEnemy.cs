@@ -18,8 +18,6 @@ public class BaseDefenseEnemy : MonoBehaviour
     private bool canBeStruckByLightning = true;
     private bool isRagdoll;
 
-    private bool canAttack = true;
-
     [SerializeField] bool isProtester;
     [SerializeField] Transform[] protesterTransforms;
     [SerializeField] private int protesterNum;
@@ -65,6 +63,8 @@ public class BaseDefenseEnemy : MonoBehaviour
     {
         health -= damage;
 
+        BaseDefenceGameController.current.allEnemies.Remove(gameObject);
+
         StartCoroutine(DestroyMe());
     }
 
@@ -92,28 +92,6 @@ public class BaseDefenseEnemy : MonoBehaviour
         canBeStruckByLightning = true;
     }
 
-
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if(collision.gameObject.GetComponent<BaseDefenseCrystal>())
-        {
-            agent.enabled = false;
-            StartCoroutine(AttackCrystal(collision.gameObject.GetComponent<BaseDefenseCrystal>()));
-        }
-    }
-
-    private IEnumerator AttackCrystal(BaseDefenseCrystal crystalToAttack)
-    {
-        if(canAttack)
-        {
-            canAttack = false;
-            yield return new WaitForSeconds(1f);
-            crystalToAttack.TakeDamage(1f);
-            canAttack = true;
-        }
-
-    }
 
     public bool CheckIfRagdoll()
     {
