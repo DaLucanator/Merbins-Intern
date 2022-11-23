@@ -20,6 +20,19 @@ public class BaseDefenseCrystal : MonoBehaviour
 
     bool canTakeDamage = true;
 
+    void Start()
+    {
+        Material material = new Material(Shader.Find("Standard"));
+        Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+
+        foreach(Renderer r in renderers)
+        {
+            r.material = material;
+            r.material.color = Random.ColorHSV();
+        }
+
+    }
+
     public void SetCrystaLScale(float num)
     {
         crystalScale = num;
@@ -43,8 +56,6 @@ public class BaseDefenseCrystal : MonoBehaviour
 
     void Explode()
     {
-        if(health <= 0f)
-        {
             GameObject newExplosionObject = Instantiate(explosionObject, transform.position, Quaternion.identity);
             BaseDefenseExplosion explosion = newExplosionObject.GetComponent<BaseDefenseExplosion>();
 
@@ -59,12 +70,16 @@ public class BaseDefenseCrystal : MonoBehaviour
 
             explosion.Explode();
             Destroy(gameObject);
-        }
     }
 
     void LoseHealth()
     {
         health--;
+
+        if (health <= 0f)
+        {
+            Explode();
+        }
     }
 
     private IEnumerator TakeDamage()
@@ -74,17 +89,15 @@ public class BaseDefenseCrystal : MonoBehaviour
         foreach (GameObject enemy in BaseDefenceGameController.current.allEnemies)
         {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
-            if(distance > transform.localScale.x + 0.5f)
+            if(distance < (transform.localScale.x * 3f))
             {
                 LoseHealth();
             }
-
-
-
-            yield return new WaitForSeconds(1f);
-
-            canTakeDamage=true;
         }
+
+        yield return new WaitForSeconds(1f);
+
+        canTakeDamage = true;
     }
 
 
