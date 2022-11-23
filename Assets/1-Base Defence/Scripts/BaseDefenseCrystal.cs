@@ -34,7 +34,6 @@ public class BaseDefenseCrystal : MonoBehaviour
         foreach(Renderer r in renderers)
         {
             r.material = material;
-            r.material.color = Random.ColorHSV();
         }
 
     }
@@ -87,6 +86,21 @@ public class BaseDefenseCrystal : MonoBehaviour
         if (currentHealth <= 0f)
         {
             Explode();
+        }
+    }
+
+    void UpdateColour()
+    {
+        foreach (Renderer r in renderers)
+        {
+
+            float percent = currentHealth/ maxHealth;
+
+
+            //gradient
+
+
+            r.material.color = Random.ColorHSV();
         }
     }
 
