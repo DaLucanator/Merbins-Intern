@@ -3722,7 +3722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98ef342d0d5a76a49a7e7b3dae66f134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalCooldown: 0
+  portalCooldown: 2
   portalVelocityMultiplier: 1
 --- !u!1 &4857026720859100801
 GameObject:
