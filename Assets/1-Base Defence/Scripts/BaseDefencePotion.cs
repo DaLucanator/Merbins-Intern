@@ -22,6 +22,34 @@ public class BaseDefencePotion : MonoBehaviour
     [SerializeField] private GameObject lightningVFX;
     [SerializeField] private GameObject explosionVFX;
 
+    private Material material;
+
+    private Color potionColor,lightningColor,crystalColor,portalColor;
+    private Renderer[] renderer;
+
+    void Start()
+    {
+        material = new Material(Shader.Find("Standard"));
+
+        renderer = gameObject.GetComponentsInChildren<Renderer>();
+
+        renderer[0].material = material;
+
+        lightningColor = Color.blue;
+        crystalColor = Color.green;
+        portalColor = Color.red;
+
+        SetColor();
+    }
+
+    public void SetColor()
+    {
+        Color newcolor;
+        newcolor = (lightningColor * lightningScale) + (crystalColor * crystalScale) + (portalColor * portalScale);
+        newcolor /= lightningScale + crystalScale + portalScale;
+
+        material.color = newcolor;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

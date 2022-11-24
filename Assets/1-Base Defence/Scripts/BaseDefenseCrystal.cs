@@ -20,6 +20,11 @@ public class BaseDefenseCrystal : MonoBehaviour
     private Material material;
     private Renderer[] renderers;
 
+    Gradient gradient;
+    GradientColorKey[] colorKey;
+    GradientAlphaKey[] alphaKey;
+
+
     private float crystalScale;
 
     private bool isActive;
@@ -34,7 +39,31 @@ public class BaseDefenseCrystal : MonoBehaviour
         foreach(Renderer r in renderers)
         {
             r.material = material;
+            material.color = Color.green;
         }
+
+        gradient = new Gradient();
+
+        // Populate the color keys at the relative time 0 and 1 (0 and 100%)
+        colorKey = new GradientColorKey[3];
+        colorKey[0].color = Color.green;
+        colorKey[0].time = 0.0f;
+        colorKey[1].color = new Color (1,0.5f,0);
+        colorKey[1].time = 0.5f;
+        colorKey[2].color = Color.red;
+        colorKey[2].time = 0.9f;
+
+        // Populate the alpha  keys at relative time 0 and 1  (0 and 100%)
+        alphaKey = new GradientAlphaKey[3];
+        alphaKey[0].alpha = 1.0f;
+        alphaKey[0].time = 0.0f;
+        alphaKey[1].alpha = 1.0f;
+        alphaKey[1].time = 0.5f;
+        alphaKey[2].alpha = 1.0f;
+        alphaKey[2].time = 0.9f;
+  
+
+        gradient.SetKeys(colorKey, alphaKey);
 
     }
 
@@ -83,6 +112,8 @@ public class BaseDefenseCrystal : MonoBehaviour
     {
         currentHealth--;
 
+        UpdateColour();
+
         if (currentHealth <= 0f)
         {
             Explode();
@@ -94,13 +125,9 @@ public class BaseDefenseCrystal : MonoBehaviour
         foreach (Renderer r in renderers)
         {
 
-            float percent = currentHealth/ maxHealth;
+            float percent = 1f - (currentHealth/ maxHealth);
 
-
-            //gradient
-
-
-            r.material.color = Random.ColorHSV();
+            material.color = gradient.Evaluate(percent);
         }
     }
 

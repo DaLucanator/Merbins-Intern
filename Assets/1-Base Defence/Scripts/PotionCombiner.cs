@@ -17,6 +17,7 @@ public class PotionCombiner : MonoBehaviour
         newPotion.SetCrystalScale(potion1.GetCrystalScale() + potion2.GetCrystalScale());
         newPotion.SetLightningScale(potion1.GetLightningScale() + potion2.GetLightningScale());
         newPotion.SetPortalScale(potion1.GetPortalScale() + potion2.GetPortalScale());
+        newPotion.SetColor();
 
         Destroy(potion1.gameObject);
         Destroy(potion2.gameObject);
