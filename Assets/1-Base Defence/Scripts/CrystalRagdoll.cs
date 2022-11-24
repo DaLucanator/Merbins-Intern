@@ -11,6 +11,8 @@ public class CrystalRagdoll : MonoBehaviour
 
     private float crystalScale;
     [SerializeField] private GameObject crystalObject;
+    [SerializeField] private GameObject lightningVFX;
+    [SerializeField] private GameObject explosionVFX;
 
     private bool isActive;
 
@@ -29,7 +31,6 @@ public class CrystalRagdoll : MonoBehaviour
     public void SetCrystaLScale(float num)
     {
         crystalScale = num;
-        gameObject.transform.localScale *= num;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -40,14 +41,17 @@ public class CrystalRagdoll : MonoBehaviour
             GameObject newExplosionObject = Instantiate(explosionObject, collision.GetContact(0).point, Quaternion.identity);
             BaseDefenseExplosion explosion = newExplosionObject.GetComponent<BaseDefenseExplosion>();
 
-            explosion.SetExplosionForce(explosionForce + (explosionForce * crystalScale));
-            explosion.SetExplosionForceUp(explosionForceUp + (explosionForceUp * crystalScale));
-            explosion.SetExplosionRadius(explosionRadius + (explosionRadius * crystalScale));
-            explosion.SetExplosionDamage(explosionDamage + (explosionDamage * crystalScale));
+            explosion.SetExplosionForce(explosionForce * crystalScale);
+            explosion.SetExplosionForceUp(explosionForceUp * crystalScale);
+            explosion.SetExplosionRadius(explosionRadius * crystalScale);
+            explosion.SetExplosionDamage(explosionDamage * crystalScale);
             explosion.SetExplosionObject(explosionObject);
 
             explosion.SetCrystalScale(crystalScale);
             explosion.SetCrystalObject(crystalObject);
+
+            explosion.SetLightningObject(lightningVFX);
+            explosion.SetExplosionVFX(explosionVFX);
 
             explosion.Explode();
             Destroy(gameObject);
@@ -63,8 +67,6 @@ public class CrystalRagdoll : MonoBehaviour
     {
         gameObject.transform.localScale = scale;
     }
-
-    //when I collide with ground spawn an explosion
 
     public void SetExplosionForce(float num)
     {

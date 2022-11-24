@@ -53,7 +53,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   scaleEnabled: 1
-  scaleMultiplier: 5
+  scaleMultiplier: 7.5
   scaleThreshold: 6
   scaleRampExponent: 2
   useScaleRampCustomCurve: 0

@@ -3708,8 +3708,8 @@ MonoBehaviour:
   randomFlingForce: 750
   randomFlingTorque: 45
   randomFlingTorque2: 10
-  getUpTimerMin: 0.5
-  getUpTimerMax: 1.5
+  getUpTimerMin: 0
+  getUpTimerMax: 0
 --- !u!114 &6578931380322529147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3722,9 +3722,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98ef342d0d5a76a49a7e7b3dae66f134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalCooldown: 0
+  portalCooldown: 2
   portalVelocityMultiplier: 1
-  canPortal: 1
 --- !u!1 &4857026720859100801
 GameObject:
   m_ObjectHideFlags: 0

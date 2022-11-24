@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,17 +11,24 @@ public class BaseDefenseExplosion : MonoBehaviour
 
     private float portalScale;
     private GameObject portalObject;
-    private GameObject portal2Object;
 
     private float lightningScale, lightningStrikeDistance;
     
     private float crystalScale;
     private GameObject crystalObject;
 
+    private GameObject lightningVFX;
+    private GameObject explosionVFX;
+
     // Update is called once per frame
     public void Explode()
     {
-        //Explosion
+        float modifier = portalScale + crystalScale;
+        if (modifier <= 0f) { modifier = 1f; }
+
+        GameObject explosionEffect = Instantiate(explosionVFX, transform.position, Quaternion.identity);
+        explosionEffect.GetComponent<BaseDefenceVFX>().SetScale(modifier);
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider hit in colliders)
         {
@@ -36,6 +44,7 @@ public class BaseDefenseExplosion : MonoBehaviour
 
             if (enemy != null)
             {
+                Debug.Log("killing enemy");
                 enemy.TakeDamage(explosionDamage);
             }
         }
@@ -43,14 +52,24 @@ public class BaseDefenseExplosion : MonoBehaviour
         //Portal
         if (portalScale > 0)
         {
-            GameObject portal1Object = Instantiate(portalObject, transform.position, Quaternion.identity);
+            Quaternion halfTurn = Quaternion.Euler(0f, 0f, 90f);   
+            Vector3 spawnPos = new Vector3(101,15,15);
+
+            Transform portal2Transform = BaseDefenceGameController.current.GetPortal2Transform();
+            Transform portal1Transform = BaseDefenceGameController.current.GetPortal1Transform(gameObject.transform);
+
+            GameObject portal2Object = Instantiate(portalObject, portal2Transform.position, portal2Transform.rotation);
+            BaseDefensePortal portal2 = portal2Object.GetComponent<BaseDefensePortal>();
+
+            GameObject portal1Object = Instantiate(portalObject, portal1Transform.position, portal1Transform.rotation);
             BaseDefensePortal portal1 = portal1Object.GetComponent<BaseDefensePortal>();
+
+
 
             portal2Object.SetActive(true);
             portal1Object.SetActive(true);
-
-            BaseDefensePortal portal2 = portal2Object.GetComponent<BaseDefensePortal>();
-            portal1.SetPortalScale(explosionRadius);
+            portal1.SetPortalScale(portalScale);
+            portal2.SetPortalScale(5f);
 
             portal1.SetOtherPortal(portal2);
             portal2.SetOtherPortal(portal1);
@@ -71,12 +90,6 @@ public class BaseDefenseExplosion : MonoBehaviour
             GameObject newCrystal = Instantiate(crystalObject, transform.position, Quaternion.identity);
             BaseDefenseCrystal crystal = newCrystal.GetComponent<BaseDefenseCrystal>();
 
-            crystal.SetExplosionForce(explosionForce);
-            crystal.SetExplosionForceUp(explosionForceUp);
-            crystal.SetExplosionRadius(explosionRadius);
-            crystal.SetExplosionDamage(explosionDamage);
-            crystal.SetExplosionObject(explosionObject);
-
             crystal.SetCrystaLScale(crystalScale);
 
             crystal.Activate();
@@ -92,9 +105,9 @@ public class BaseDefenseExplosion : MonoBehaviour
             List<GameObject> enemies = new List<GameObject>();
             foreach (Collider hit in colliders2)
             {
-                if(hit.GetComponent<BaseDefenseEnemy>())
+                if (hit.GetComponent<BaseDefenseEnemy>())
                 {
-                    if(hit.gameObject.GetComponent<BaseDefenseEnemy>().CheckifCanBeStruck())
+                    if (hit.gameObject.GetComponent<BaseDefenseEnemy>().CheckifCanBeStruck())
                     {
                         Debug.Log("pew2");
                         enemies.Add(hit.gameObject);
@@ -102,7 +115,7 @@ public class BaseDefenseExplosion : MonoBehaviour
                 }
             }
 
-            if(enemies.Count > 0)
+            if (enemies.Count > 0)
             {
                 Transform objectToHit = enemies[Random.Range(0, enemies.Count)].transform;
 
@@ -117,7 +130,6 @@ public class BaseDefenseExplosion : MonoBehaviour
 
                 explosion.setPortalScale(portalScale);
                 explosion.SetPortalObject(portalObject);
-                explosion.SetPortal2Object(portal2Object);
 
                 explosion.SetLightningScale(lightningScale);
                 explosion.SetlightningStrikeDistance(lightningStrikeDistance);
@@ -125,9 +137,44 @@ public class BaseDefenseExplosion : MonoBehaviour
                 explosion.SetCrystalScale(crystalScale);
                 explosion.SetCrystalObject(crystalObject);
 
-                explosion.Explode();
+                explosion.SetLightningObject(lightningVFX);
+                explosion.SetExplosionVFX(explosionVFX);
+
+                Instantiate(lightningVFX, objectToHit.position, Quaternion.identity);
+                StartCoroutine(WaitForLightning(explosion));
             }
         }
+
+        else { StartCoroutine(DestroyMe()); }
+    }
+
+    IEnumerator WaitForLightning(BaseDefenseExplosion explosion)
+    {
+        yield return new WaitForSeconds(1f);
+        explosion.Explode();
+
+        Destroy(gameObject);
+    }
+
+    void DrawLine(Vector3 start, Vector3 end, Color color, float duration, float lineWidth)
+    {
+        GameObject myLine = new GameObject();
+        myLine.transform.position = start;
+        myLine.AddComponent<LineRenderer>();
+        LineRenderer lr = myLine.GetComponent<LineRenderer>();
+        lr.startColor = color;
+        lr.endColor = color;
+        lr.startWidth = lineWidth;
+        lr.endWidth = lineWidth;
+        lr.SetPosition(0, start);
+        lr.SetPosition(1, end);
+        GameObject.Destroy(myLine, duration);
+    }
+
+    IEnumerator DestroyMe()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 
     public void SetExplosionForce(float num)
@@ -165,11 +212,6 @@ public class BaseDefenseExplosion : MonoBehaviour
         portalObject = portal;
     }
 
-    public void SetPortal2Object(GameObject portal)
-    {
-        portal2Object = portal;
-    }
-
     public void SetLightningScale(float num)
     {
         lightningScale = num;
@@ -189,5 +231,15 @@ public class BaseDefenseExplosion : MonoBehaviour
     public void SetCrystalObject(GameObject gameObject)
     {
         crystalObject = gameObject;
+    }
+
+    public void SetLightningObject(GameObject lightning)
+    {
+        lightningVFX = lightning;
+    }
+
+    public void SetExplosionVFX(GameObject vfx)
+    {
+        explosionVFX = vfx;
     }
 }

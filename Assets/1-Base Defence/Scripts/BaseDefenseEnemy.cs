@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,6 +18,10 @@ public class BaseDefenseEnemy : MonoBehaviour
     private bool canBeStruckByLightning = true;
     private bool isRagdoll;
 
+    [SerializeField] bool isProtester;
+    [SerializeField] Transform[] protesterTransforms;
+    [SerializeField] private int protesterNum;
+
     private void Start()
     {
         crystalLocation = GameObject.Find("Crystal Location").transform;
@@ -28,11 +34,44 @@ public class BaseDefenseEnemy : MonoBehaviour
 
         animator = gameObject.GetComponent<Animator>();
         animator.speed += animator.speed * (randNum/startSpeed);
+
+        if(isProtester)
+        {
+            agent.SetDestination(protesterTransforms[protesterNum].position);
+        }
+    }
+
+    private void Update()
+    {
+        if(GetComponent<Rigidbody>().isKinematic == true && isProtester)
+        {
+            if(agent.remainingDistance < 0.1f)
+            {
+                protesterNum++;
+                if (protesterNum >= protesterTransforms.Length) { protesterNum = 0; }
+                agent.SetDestination(protesterTransforms[protesterNum].position);
+            }
+
+        }
+        if (GetComponent<Rigidbody>().isKinematic == false && isProtester)
+        {
+            BaseDefenceGameController.current.ActivateEnemyPortal();
+        }
     }
 
     public void TakeDamage(float damage)
     {
         health -= damage;
+
+        BaseDefenceGameController.current.allEnemies.Remove(gameObject);
+
+        StartCoroutine(DestroyMe());
+    }
+
+    IEnumerator DestroyMe()
+    {
+        yield return new WaitForSeconds(10f);
+        Destroy(gameObject);
     }
 
     public void LightningStrike()
@@ -46,10 +85,6 @@ public class BaseDefenseEnemy : MonoBehaviour
         return canBeStruckByLightning;
     }
 
-    public void Kill()
-    {
-        Destroy(gameObject);
-    }
 
     private IEnumerator LightningStrikeTimer()
     {
@@ -57,20 +92,6 @@ public class BaseDefenseEnemy : MonoBehaviour
         canBeStruckByLightning = true;
     }
 
-    void DrawLine(Vector3 start, Vector3 end, Color color, float duration, float lineWidth)
-    {
-        GameObject myLine = new GameObject();
-        myLine.transform.position = start;
-        myLine.AddComponent<LineRenderer>();
-        LineRenderer lr = myLine.GetComponent<LineRenderer>();
-        lr.startColor = color;
-        lr.endColor = color;
-        lr.startWidth = lineWidth;
-        lr.endWidth = lineWidth;
-        lr.SetPosition(0, start);
-        lr.SetPosition(1, end);
-        GameObject.Destroy(myLine, duration);
-    }
 
     public bool CheckIfRagdoll()
     {
@@ -78,5 +99,9 @@ public class BaseDefenseEnemy : MonoBehaviour
     }
 
 
+    //if I'm close enough to a crystal
+    //cancel my navigation
     //attack the crystal
+
+
 }

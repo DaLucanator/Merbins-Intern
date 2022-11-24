@@ -3679,6 +3679,9 @@ MonoBehaviour:
   randomSpeedMod: 1
   portalLocation: {fileID: 0}
   crystalLocation: {fileID: 0}
+  isProtester: 0
+  protesterTransforms: []
+  protesterNum: 0
 --- !u!195 &4857026720837510747
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3745,7 +3748,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portalCooldown: 0.5
   portalVelocityMultiplier: 2
-  canPortal: 1
 --- !u!1 &4857026720859100801
 GameObject:
   m_ObjectHideFlags: 0
