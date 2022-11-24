@@ -52,11 +52,12 @@ public class KeyFeedback : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Touch"))
+        if (other.CompareTag("Touch") && keyHit == false)
         {
             var key = this.GetComponentInChildren<TextMeshProUGUI>();
             if (key != null)
             {
+                keyHit = true;
                 if (key.text == "BACK")
                 {
                     if (display.text.Length > 0)
@@ -95,7 +96,7 @@ public class KeyFeedback : MonoBehaviour
                     if (display.text.Length < 4)
                         display.text += key.text;
                 }
-                keyHit = true;
+                
             }
         }
     }
