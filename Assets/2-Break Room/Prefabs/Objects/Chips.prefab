@@ -294,6 +294,46 @@ PrefabInstance:
       propertyPath: ShapeModule.radius.value
       value: 0.12
       objectReference: {fileID: 0}
+    - target: {fileID: 3965815200131015900, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965815200131015900, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965815200131015900, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965815200131015900, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.08235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965815200131015900, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965815200131015900, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 0.627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965815200131015900, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 0.08235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390035358785086576, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390035358785086576, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
+      propertyPath: m_Color.g
+      value: 0.62499356
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390035358785086576, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
+      propertyPath: m_Color.r
+      value: 0.082352936
+      objectReference: {fileID: 0}
     - target: {fileID: 9160373278650876704, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
       propertyPath: m_Name
       value: New OM

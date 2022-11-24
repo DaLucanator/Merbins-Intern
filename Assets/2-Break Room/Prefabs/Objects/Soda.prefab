@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8879854635118706793}
-  - component: {fileID: 3969582567052072205}
   - component: {fileID: 282176405}
   - component: {fileID: 7975277400701792960}
   - component: {fileID: 1021126957591095182}
   - component: {fileID: 596341888193954933}
   - component: {fileID: 5038532695677980462}
+  - component: {fileID: 2353972693008451272}
   m_Layer: 0
   m_Name: Soda
   m_TagString: L2_PickupManager
@@ -39,20 +39,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &3969582567052072205
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5836485969780969482}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 1.8
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: -0.22, z: -0.00000008940697}
 --- !u!114 &282176405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +227,19 @@ MonoBehaviour:
   hideOnUse:
   - {fileID: 8607961039502944979}
   showOn: 0
+--- !u!65 &2353972693008451272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836485969780969482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.2722434, z: 1}
+  m_Center: {x: -0.0000000098205435, y: -0.35059687, z: -1.4151869e-11}
 --- !u!1001 &600579655678749171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -258,7 +257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3429607937832557405, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.391
       objectReference: {fileID: 0}
     - target: {fileID: 3429607937832557405, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
       propertyPath: m_LocalPosition.z
@@ -297,8 +296,12 @@ PrefabInstance:
       value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 3965815200131015900, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965815200131015900, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 5.28
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3965815200131015900, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
@@ -331,6 +334,10 @@ PrefabInstance:
     - target: {fileID: 6390035358785086576, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
       propertyPath: m_Color.r
       value: 0.8157608
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390035358785086576, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
+      propertyPath: m_Intensity
+      value: 0.79
       objectReference: {fileID: 0}
     - target: {fileID: 9160373278650876704, guid: 8e9032c8acdcd574b8fa75cf68d4df12, type: 3}
       propertyPath: m_Name
@@ -419,6 +426,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ecf1c114ad6bdd24fa71dd5383f74411, type: 2}
+    - target: {fileID: -5754084199372789682, guid: a5b2b78c2233a7d4897f752c15bb0907, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2476062243517321465, guid: f33afb7f81835f7488e354ae1ac66f38, type: 3}
     - target: {fileID: 919132149155446097, guid: a5b2b78c2233a7d4897f752c15bb0907, type: 3}
       propertyPath: m_Name
       value: Soda Can or Something

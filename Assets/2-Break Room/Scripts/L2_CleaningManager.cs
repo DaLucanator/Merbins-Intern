@@ -8,7 +8,7 @@ public class L2_CleaningManager : MonoBehaviour
 {
     [Header("PickupParticles")]
 
-    List<GameObject> PUObjs = new List<GameObject>();
+    [SerializeField] List<GameObject> PUObjs = new List<GameObject>();
 
 
     /*[Header("Dependencies")]
@@ -84,16 +84,19 @@ public class L2_CleaningManager : MonoBehaviour
 
         for (int i = 0; i<PUObjs.Count; i++)
         {
+            PUObjs = GameObject.FindGameObjectsWithTag("L2_PickupManager").ToList<GameObject>();
             if (PUObjs[i] == null)
             {
-                PUObjs.RemoveAt(i);
+                //PUObjs.RemoveAt(i);
+                //Debug.Log("THIS IS NULL " + i);
                 continue;
-            }
-
-            if (reference != i)
+            }else if(reference != i)
             {
+                //Debug.Log($"I am {gameObject.name} + im trying to get int {i} ");
+                //Debug.Log($"I am {gameObject.name} + im trying to get int {i}, this is {PUObjs[i]} ");
                 PUObjs[i].GetComponent<PickupObjective>().OtherUsed(used);
             }
+
         }
     }
 
@@ -103,6 +106,6 @@ public class L2_CleaningManager : MonoBehaviour
 
 
         PUObjs = GameObject.FindGameObjectsWithTag("L2_PickupManager").ToList<GameObject>();
-        Debug.Log(GameObject.FindGameObjectsWithTag("L2_PickupManager")[0]);
+        //Debug.Log(GameObject.FindGameObjectsWithTag("L2_PickupManager")[0]);
     }
 }
