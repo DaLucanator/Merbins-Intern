@@ -12,6 +12,13 @@ public class Enemy_Spawn : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(DelayStart());
+    }
+
+    private IEnumerator DelayStart()
+    {
+        yield return new WaitForSeconds(12f);
+
         InstantiateEnemy();
     }
 
@@ -19,7 +26,7 @@ public class Enemy_Spawn : MonoBehaviour
     {
         GameObject G0_Current = (GameObject)Instantiate(G0_Enemy);
         G0_Current.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        if (spawnTime > -0)
+        if (spawnTime > 1)
         {
             StartCoroutine("waitForFewSeconds");
         }
