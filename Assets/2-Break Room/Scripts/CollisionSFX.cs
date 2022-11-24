@@ -9,17 +9,23 @@ using UnityEngine;
 
 public class CollisionSFX : MonoBehaviour
 {
-    [SerializeField] AudioClip sfx;
     AudioSource AS;
+    Rigidbody rb;
     float cooldown = -0.2f;
-    float activeCooldown;
+    [SerializeField] float activeCooldown;
+    float setVelocity = 1.3f;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (activeCooldown >= 0)
         {
-            AS.Play();
-            activeCooldown = cooldown;
+            Debug.Log(collision.relativeVelocity.magnitude);
+            if (collision.relativeVelocity.magnitude > setVelocity)
+            {
+                AS.Play();
+                activeCooldown = cooldown;
+                Debug.LogWarning($"PLAYING {AS.clip} SOUND from {gameObject.name} ");
+            }
         }
         
     }
@@ -27,8 +33,7 @@ public class CollisionSFX : MonoBehaviour
     private void OnEnable()
     {
         AS = GetComponent<AudioSource>();
-        if (sfx != null)
-            AS.clip = sfx;
+        rb = GetComponent<Rigidbody>();
     }
     private void FixedUpdate()
     {
