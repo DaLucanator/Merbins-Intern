@@ -21,6 +21,8 @@ public class Printer : MonoBehaviour
     [Tooltip("Spawn point to Proceed")]
     public Transform SpawnPointProceed;
 
+    public AudioSource printSound;
+
     private void Update()
     {
         currentCount = catalogPrintedItems.Count;
@@ -55,6 +57,11 @@ public class Printer : MonoBehaviour
     }
     public void ProceedCraftItem()
     {
+        if (printSound != null)
+        {
+            printSound.Play();
+        }
+
         if (itemSlotItem != null)
         {
             if (currentCount < limitCount + 1)

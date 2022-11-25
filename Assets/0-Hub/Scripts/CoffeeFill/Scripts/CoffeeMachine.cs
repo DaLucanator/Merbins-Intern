@@ -12,6 +12,9 @@ public class CoffeeMachine : MonoBehaviour
 
     public float speed = 1f;
     bool addfillCoffee;
+    bool enableSound;
+
+    public AudioSource fillCofeeSound;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -56,6 +59,20 @@ public class CoffeeMachine : MonoBehaviour
             else
             {
                 fillDrop.enabled = true;
+            }
+        }
+
+        enableSound = addfillCoffee;
+
+        if (fillCofeeSound != null)
+        {
+            if (enableSound)
+            {
+                fillCofeeSound.Play();
+            }
+            else
+            {
+                fillCofeeSound.Stop();
             }
         }
     }
