@@ -2360,6 +2360,7 @@ MonoBehaviour:
   inUse: 0
   scale: 1
   was: 0
+  rb: {fileID: 0}
   canTurnOn: 1
   showOnUse:
   - {fileID: 1806405523}
@@ -9755,6 +9756,7 @@ MonoBehaviour:
   inUse: 0
   scale: 1
   was: 0
+  rb: {fileID: 0}
   canTurnOn: 1
   showOnUse:
   - {fileID: 1885827221}
@@ -14632,6 +14634,7 @@ MonoBehaviour:
   inUse: 0
   scale: 1
   was: 0
+  rb: {fileID: 0}
   canTurnOn: 1
   showOnUse:
   - {fileID: 1950780440}
@@ -22447,6 +22450,7 @@ MonoBehaviour:
   inUse: 0
   scale: 1
   was: 0
+  rb: {fileID: 0}
   canTurnOn: 1
   showOnUse:
   - {fileID: 1806405523}
@@ -22880,7 +22884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8477671644153150057, guid: 7272ccf7718054a4190d2a71f38c26df, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.309
+      value: 1.94
       objectReference: {fileID: 0}
     - target: {fileID: 8477671644153150057, guid: 7272ccf7718054a4190d2a71f38c26df, type: 3}
       propertyPath: m_LocalRotation.w
@@ -29066,6 +29070,7 @@ MonoBehaviour:
   inUse: 0
   scale: 1
   was: 0
+  rb: {fileID: 0}
   canTurnOn: 1
   showOnUse:
   - {fileID: 1806405523}
@@ -33697,7 +33702,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537289271}
   m_LocalRotation: {x: 0.7070373, y: -0, z: -0, w: 0.7071763}
-  m_LocalPosition: {x: 0, y: 9.304, z: -0.002}
+  m_LocalPosition: {x: 0, y: 9.3, z: 0.95}
   m_LocalScale: {x: 1.9723, y: 1.9723, z: 1.9723}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34836,7 +34841,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606755814}
   m_LocalRotation: {x: -0.03415083, y: -0, z: -0, w: 0.9994167}
-  m_LocalPosition: {x: 0.017, y: 1.111, z: -2.303}
+  m_LocalPosition: {x: -0.569, y: 1.233, z: -2.303}
   m_LocalScale: {x: 0.01454054, y: 0.014540544, z: 0.014540544}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35015,6 +35020,7 @@ MonoBehaviour:
   inUse: 0
   scale: 1
   was: 0
+  rb: {fileID: 0}
   canTurnOn: 1
   showOnUse:
   - {fileID: 1004333812}
@@ -35360,6 +35366,7 @@ MonoBehaviour:
   inUse: 0
   scale: 1
   was: 0
+  rb: {fileID: 0}
   canTurnOn: 1
   showOnUse:
   - {fileID: 1806405523}
