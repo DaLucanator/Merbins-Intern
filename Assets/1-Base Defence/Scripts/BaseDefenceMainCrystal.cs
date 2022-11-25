@@ -15,8 +15,12 @@ public class BaseDefenceMainCrystal : MonoBehaviour
     [SerializeField] private float maxHealth;
     private float currentHealth;
 
+    [SerializeField] private Rigidbody rb1;
+    [SerializeField] private Rigidbody rb2;
+
     private Material material;
     private Renderer[] renderers;
+    private Light[] lights;
 
     Gradient gradient;
     GradientColorKey[] colorKey;
@@ -29,6 +33,7 @@ public class BaseDefenceMainCrystal : MonoBehaviour
     {
         material = new Material(Shader.Find("Standard"));
         renderers = gameObject.GetComponentsInChildren<Renderer>();
+        lights = gameObject.GetComponentsInChildren<Light>();
 
         currentHealth = maxHealth;
 
@@ -36,6 +41,11 @@ public class BaseDefenceMainCrystal : MonoBehaviour
         {
             r.material = material;
             material.color = Color.green;
+        }
+
+        foreach(Light light in lights)
+        {
+            light.color = Color.green;
         }
 
         gradient = new Gradient();
@@ -80,6 +90,8 @@ public class BaseDefenceMainCrystal : MonoBehaviour
         if (currentHealth <= 0f)
         {
             BaseDefenceGameController.current.DeActivateEnemyPortal();
+            rb1.isKinematic = false;
+            rb2.isKinematic = false;
         }
     }
 
@@ -91,6 +103,11 @@ public class BaseDefenceMainCrystal : MonoBehaviour
             float percent = 1f - (currentHealth / maxHealth);
 
             material.color = gradient.Evaluate(percent);
+
+            foreach (Light light in lights)
+            {
+                light.color = gradient.Evaluate(percent);
+            }
         }
     }
 
