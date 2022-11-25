@@ -62,6 +62,7 @@ public class L2_CleaningManager : MonoBehaviour
     }
     void Done()
     {
+        GetComponent<AudioSource>().Play();
         objfilth.SetActive(!filth);
         objgarbage.SetActive(!garbage);
         objdish.SetActive(!dishes);
@@ -79,7 +80,7 @@ public class L2_CleaningManager : MonoBehaviour
 
     public void otherActivityChange(GameObject from,bool used)
     {
-        Debug.Log(3);
+        //Debug.Log(3);
         int reference = PUObjs.IndexOf(from);
 
         for (int i = 0; i<PUObjs.Count; i++)

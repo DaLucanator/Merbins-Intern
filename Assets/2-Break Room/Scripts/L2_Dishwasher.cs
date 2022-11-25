@@ -46,6 +46,7 @@ public class L2_Dishwasher : MonoBehaviour
             temp.max = Mathf.Lerp(temp.max, 0, i);
             dishwasherDoor.limits = temp;
         }
+        GetComponent<AudioSource>().Play();
     }
     private void OnTriggerExit(Collider other)
     {
