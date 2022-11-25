@@ -12,6 +12,7 @@ public class KeyPadControl : MonoBehaviour
     public GameObject glass;
     public GameObject crystal;
 
+    public AudioSource audioPlaying;
     public GameObject poster;
     public Material mat1;
     public Material mat2;
@@ -68,6 +69,7 @@ public class KeyPadControl : MonoBehaviour
     {
         if (combination == correctCombination)
         {
+            audioPlaying.Play();
             accessGranted = true;
             return true;
         }
