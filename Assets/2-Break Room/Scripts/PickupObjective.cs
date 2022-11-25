@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PickupObjective : MonoBehaviour
 {
-    [SerializeField] Vector3 lastPos;
+    
     [SerializeField] float inUse  = -1;
-    [SerializeField] float scale = 1;
+    
     [SerializeField] bool was = false;
     //[SerializeField] Rigidbody rb;
 
@@ -29,10 +29,6 @@ public class PickupObjective : MonoBehaviour
         {
             foreach (GameObject obj in showOnUse)
             {
-                /*if(showOnUse == null)
-                {
-                    Debug.Log(gameObject);
-                }*/
                 obj.SetActive(false);
             }
             foreach (GameObject obj in hideOnUse)
@@ -51,8 +47,6 @@ public class PickupObjective : MonoBehaviour
 
     private void Start()
     {
-        //rb = GetComponent<Rigidbody>();
-        lastPos = transform.position;
 
         L_showOnUse = new List<GameObject> (showOnUse);
         L_hideOnUse = new List<GameObject> (hideOnUse);
@@ -97,14 +91,8 @@ public class PickupObjective : MonoBehaviour
     }
     public void switchActiveTo(bool use)
     {
-        //Debug.LogWarning($"{gameObject} WITHA CTIVITY " + use);
         if(canTurnOn || !use)
             GameObject.FindGameObjectWithTag("CleaningManager").GetComponent<L2_CleaningManager>().otherActivityChange(gameObject, use);
-        //Debug.LogError(1);
-
-
-        
-        //Debug.LogError(2);
         foreach (GameObject obj in L_showOnUse)
         {
             if(obj!= null)

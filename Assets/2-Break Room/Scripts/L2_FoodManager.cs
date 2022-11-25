@@ -38,7 +38,6 @@ public class L2_FoodManager : MonoBehaviour
         {
             //finish
             cM.FinishTask(3);
-            //
         }
     }
 

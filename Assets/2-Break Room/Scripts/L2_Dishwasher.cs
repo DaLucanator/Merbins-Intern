@@ -29,7 +29,6 @@ public class L2_Dishwasher : MonoBehaviour
                 //destroy all objects
                 foreach (GameObject obj in cleanedObjects)
                 {
-                    //obj.GetComponent<PickupObjective>().switchActiveTo(false);
                     Destroy(obj);
                 }
                 
@@ -50,8 +49,6 @@ public class L2_Dishwasher : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        
-
         if (other.gameObject.GetComponent<L2_Washable>())
         {
             cleanedObjects.Remove(other.gameObject);

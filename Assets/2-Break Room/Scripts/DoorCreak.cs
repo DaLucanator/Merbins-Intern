@@ -9,17 +9,13 @@ using UnityEngine;
 
 public class DoorCreak : MonoBehaviour
 {
-    HingeJoint hJ;
     AudioSource aS;
-    Rigidbody rb;
     bool canMakeSound;
 
 
     private void OnEnable()
     {
-        hJ = GetComponent<HingeJoint>();
         aS = GetComponent<AudioSource>();
-        rb = GetComponent<Rigidbody>();
     }
     private void FixedUpdate()
     {

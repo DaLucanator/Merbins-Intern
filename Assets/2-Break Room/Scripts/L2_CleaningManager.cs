@@ -11,12 +11,6 @@ public class L2_CleaningManager : MonoBehaviour
     [SerializeField] List<GameObject> PUObjs = new List<GameObject>();
 
 
-    /*[Header("Dependencies")]
-
-    [SerializeField] L2_Bin RubbishManager;
-    [SerializeField] L2_SpongeScript FilthManager;*/
-
-
     [Header("Cleaning tasks")]
     [SerializeField] bool filth;
     [SerializeField] bool garbage;
@@ -80,7 +74,6 @@ public class L2_CleaningManager : MonoBehaviour
 
     public void otherActivityChange(GameObject from,bool used)
     {
-        //Debug.Log(3);
         int reference = PUObjs.IndexOf(from);
 
         for (int i = 0; i<PUObjs.Count; i++)
@@ -88,13 +81,9 @@ public class L2_CleaningManager : MonoBehaviour
             PUObjs = GameObject.FindGameObjectsWithTag("L2_PickupManager").ToList<GameObject>();
             if (PUObjs[i] == null)
             {
-                //PUObjs.RemoveAt(i);
-                //Debug.Log("THIS IS NULL " + i);
                 continue;
             }else if(reference != i)
             {
-                //Debug.Log($"I am {gameObject.name} + im trying to get int {i} ");
-                //Debug.Log($"I am {gameObject.name} + im trying to get int {i}, this is {PUObjs[i]} ");
                 PUObjs[i].GetComponent<PickupObjective>().OtherUsed(used);
             }
 
@@ -107,6 +96,5 @@ public class L2_CleaningManager : MonoBehaviour
 
 
         PUObjs = GameObject.FindGameObjectsWithTag("L2_PickupManager").ToList<GameObject>();
-        //Debug.Log(GameObject.FindGameObjectsWithTag("L2_PickupManager")[0]);
     }
 }

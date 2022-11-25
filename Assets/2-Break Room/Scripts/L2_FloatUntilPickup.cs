@@ -9,7 +9,6 @@ public class L2_FloatUntilPickup : MonoBehaviour
     private void OnEnable()
     {
         startpos = transform.position;
-        
     }
 
     private void FixedUpdate()

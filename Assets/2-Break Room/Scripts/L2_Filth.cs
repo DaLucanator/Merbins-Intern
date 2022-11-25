@@ -55,7 +55,6 @@ public class L2_Filth : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         sponge.FilthCleaned();
         Destroy(gameObject);
-        Debug.Log("AsDASAD");
 
     }
 
