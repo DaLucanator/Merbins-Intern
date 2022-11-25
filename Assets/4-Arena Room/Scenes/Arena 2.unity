@@ -92168,6 +92168,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 72.004
       objectReference: {fileID: 0}
+    - target: {fileID: 2701151649825234195, guid: f98d39b3951b2d046bb3ada6b4408fcc, type: 3}
+      propertyPath: Death_Goblin
+      value: 
+      objectReference: {fileID: 1946194931}
+    - target: {fileID: 2701151649825234207, guid: f98d39b3951b2d046bb3ada6b4408fcc, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 1615076838}
     - target: {fileID: 3007563204978417732, guid: f98d39b3951b2d046bb3ada6b4408fcc, type: 3}
       propertyPath: m_Name
       value: Computer Keyboard Scythe 1
