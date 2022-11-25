@@ -22,9 +22,6 @@ public class L2_Remodelable : MonoBehaviour
             }
         }
     }
-
-
-
     private void OnEnable()
     {
         MeshRenderer[] _mRsTemp = GetComponentsInChildren<MeshRenderer>();

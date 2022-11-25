@@ -29,7 +29,6 @@ public class L2_Dishwasher : MonoBehaviour
                 //destroy all objects
                 foreach (GameObject obj in cleanedObjects)
                 {
-                    //obj.GetComponent<PickupObjective>().switchActiveTo(false);
                     Destroy(obj);
                 }
                 
@@ -46,11 +45,10 @@ public class L2_Dishwasher : MonoBehaviour
             temp.max = Mathf.Lerp(temp.max, 0, i);
             dishwasherDoor.limits = temp;
         }
+        GetComponent<AudioSource>().Play();
     }
     private void OnTriggerExit(Collider other)
     {
-        
-
         if (other.gameObject.GetComponent<L2_Washable>())
         {
             cleanedObjects.Remove(other.gameObject);

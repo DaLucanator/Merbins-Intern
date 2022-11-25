@@ -14,6 +14,7 @@ public class L2_Bin : MonoBehaviour
         {
             other.GetComponent<PickupObjective>().switchActiveTo(false);
             Destroy(other.gameObject);
+            GetComponent<AudioSource>().Play();
             i_RubbishQuantity--;
             if (i_RubbishQuantity <= 0)
             {
@@ -22,20 +23,5 @@ public class L2_Bin : MonoBehaviour
 
             }
         }
-    }
-
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

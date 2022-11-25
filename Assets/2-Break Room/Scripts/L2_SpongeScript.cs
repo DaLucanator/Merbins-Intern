@@ -40,8 +40,6 @@ public class L2_SpongeScript : MonoBehaviour
     {
         if (currentlyInteracting)
         {
-            
-
             Vector3 v_diff = lastPosition - transform.position;
             v_moveValue = Vector3.Scale(v_diff, currentAxis);
             f_ScrubValue = Mathf.Abs(v_moveValue.x) + Mathf.Abs(v_moveValue.y) + Mathf.Abs(v_moveValue.z);
@@ -52,10 +50,6 @@ public class L2_SpongeScript : MonoBehaviour
             {
                 currentFilth.cleanProgress(f_ScrubValue);
             }
-
-            
-
-
         }
         if (transform.position.y < -1)
         {
@@ -79,9 +73,4 @@ public class L2_SpongeScript : MonoBehaviour
         cM.FinishTask(0);
         Destroy(gameObject);
     }
-
-
-
-
-
 }

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PickupObjective : MonoBehaviour
 {
-    [SerializeField] Vector3 lastPos;
+    
     [SerializeField] float inUse  = -1;
-    [SerializeField] float scale = 1;
+    
     [SerializeField] bool was = false;
+    //[SerializeField] Rigidbody rb;
 
 
     public bool canTurnOn = true;
@@ -28,10 +29,6 @@ public class PickupObjective : MonoBehaviour
         {
             foreach (GameObject obj in showOnUse)
             {
-                /*if(showOnUse == null)
-                {
-                    Debug.Log(gameObject);
-                }*/
                 obj.SetActive(false);
             }
             foreach (GameObject obj in hideOnUse)
@@ -50,7 +47,6 @@ public class PickupObjective : MonoBehaviour
 
     private void Start()
     {
-        lastPos = transform.position;
 
         L_showOnUse = new List<GameObject> (showOnUse);
         L_hideOnUse = new List<GameObject> (hideOnUse);
@@ -62,16 +58,11 @@ public class PickupObjective : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (lastPos != transform.position)
+        if (inUse > 0)
         {
-            //if moving
-            
 
-            inUse += Time.deltaTime*scale;
-            //add timedeltatime
-
-
-            if (inUse > 0f&& !was)
+            inUse -= Time.deltaTime*2;
+            if (!was)
             {
                 //add time it has been like that
 
@@ -80,33 +71,28 @@ public class PickupObjective : MonoBehaviour
                 switchActiveTo(true);
                 was = true;
             }
-            lastPos = transform.position;
-            
-        }
-        else
+        }else if (was)
         {
-            inUse -= Time.deltaTime * scale;
-            if (inUse < 0f&& was)
-            {
-                inUse -= 1;
-                switchActiveTo(false);
-                was = false;
-            }
+            inUse -= 1;
+            switchActiveTo(false);
+            was = false;
         }
         inUse=Mathf.Clamp(inUse, -1, 1);
         
 
     }
+    private void OnTriggerStay(Collider collision)
+    {
+        if (collision.CompareTag("Touch"))
+        {
+            inUse = 1;
+            Debug.Log("REAL!");
+        }
+    }
     public void switchActiveTo(bool use)
     {
-        //Debug.LogWarning($"{gameObject} WITHA CTIVITY " + use);
         if(canTurnOn || !use)
             GameObject.FindGameObjectWithTag("CleaningManager").GetComponent<L2_CleaningManager>().otherActivityChange(gameObject, use);
-        //Debug.LogError(1);
-
-
-        
-        //Debug.LogError(2);
         foreach (GameObject obj in L_showOnUse)
         {
             if(obj!= null)
