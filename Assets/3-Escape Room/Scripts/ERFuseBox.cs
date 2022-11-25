@@ -7,6 +7,8 @@ public class ERFuseBox : MonoBehaviour
 	public GameObject crystal3;
     public ServerLightOnOff buttonLight;
     public ServerLightOnOff lowerLight;
+    public AudioSource audioPlayingCrystal;
+    public AudioSource audioPlayingPowerOn;
 
 
     private GlobalLevelLoader levelLoader;
@@ -19,24 +21,28 @@ public class ERFuseBox : MonoBehaviour
 	{
     	if(other.gameObject.CompareTag("erCrystal1"))
     	{
-        	crystal1.SetActive(true);
+            audioPlayingCrystal.Play();
+            crystal1.SetActive(true);
         	Destroy(other.gameObject);
     	}
     	if (other.gameObject.CompareTag("erCrystal2"))
     	{
-        	crystal2.SetActive(true);
+            audioPlayingCrystal.Play();
+            crystal2.SetActive(true);
         	Destroy(other.gameObject);
     	}
     	if (other.gameObject.CompareTag("erCrystal3"))
     	{
-        	crystal3.SetActive(true);
+            audioPlayingCrystal.Play();
+            crystal3.SetActive(true);
         	Destroy(other.gameObject);
     	}
 	}
 
 	public void restorePower()
 	{
-    	if(crystal1.activeSelf == true && crystal2.activeSelf == true && crystal3.activeSelf == true)
+        audioPlayingPowerOn.Play();
+        if (crystal1.activeSelf == true && crystal2.activeSelf == true && crystal3.activeSelf == true)
     	{
         	//power turned on
         	Debug.Log("You turned on the power!");
@@ -47,7 +53,6 @@ public class ERFuseBox : MonoBehaviour
     	else
     	{
         	Debug.Log("Power not restored yet...");
-    	}
+        }
 	}
-
 }

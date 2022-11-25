@@ -19,6 +19,7 @@ public class KeyFeedback : MonoBehaviour
     public TextMeshProUGUI display;
 
     public KeyPadControl keyPadControl;
+    public AudioSource keyAudio1;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +55,7 @@ public class KeyFeedback : MonoBehaviour
     {
         if (other.CompareTag("Touch") && keyHit == false)
         {
+            keyAudio1.Play();
             var key = this.GetComponentInChildren<TextMeshProUGUI>();
             if (key != null)
             {
