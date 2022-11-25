@@ -29,7 +29,7 @@ public class CoffeeMachine : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void OnTriggerExit(Collider other)
     {
         if (other.gameObject.GetComponent<CoffeeContainer>())
         {
