@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalCooldown: 2
-  portalVelocityMultiplier: 1
+  portalVelocityMultiplier: 1.5
 --- !u!114 &3776192349412995453
 MonoBehaviour:
   m_ObjectHideFlags: 0

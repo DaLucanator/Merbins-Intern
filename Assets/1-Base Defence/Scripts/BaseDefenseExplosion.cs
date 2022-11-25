@@ -35,7 +35,7 @@ public class BaseDefenseExplosion : MonoBehaviour
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             BaseDefenseEnemy enemy = hit.GetComponent<BaseDefenseEnemy>();
 
-            if (rb != null && hit.GetComponent<BaseDefenseCrystal>() == null)
+            if (rb != null && hit.GetComponent<BaseDefenseCrystal>() == null && hit.GetComponent<DontRagdoll>() == null)
             {
                 rb.isKinematic = false;
                 if (hit.gameObject.GetComponent<NavMeshAgent>() != null) { hit.gameObject.GetComponent<NavMeshAgent>().enabled = false; }
