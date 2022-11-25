@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(AudioSource))]
-[RequireComponent(typeof(DBAudioEvent))]
+[RequireComponent(typeof(DBAudioEventFall))]
 public class L2_EnableSoundAfterStart : MonoBehaviour
 {
     AudioSource DBAE;
