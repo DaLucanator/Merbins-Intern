@@ -10,6 +10,7 @@ public class BaseDefenseButton : MonoBehaviour
     [SerializeField] private bool combineButton;
 
     [SerializeField] private BaseDefenceComputer computer;
+    [SerializeField] private PotionCombiner combiner;
 
     void OnTriggerEnter(Collider Collider)
     {
@@ -21,7 +22,7 @@ public class BaseDefenseButton : MonoBehaviour
 
             if (printButton) { computer.EnterButton(); }
 
-            if (combineButton) { }
+            if (combineButton) { combiner.CreatePotion(); }
         }
 
     }
