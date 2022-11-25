@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/0-Hub/Scenes/HUB_GreyBox.unity
+    guid: 32a40895a05dcd54698e438ddb1bf3f3
+  - enabled: 1
+    path: Assets/3-Escape Room/Scenes/Escape Room.unity
+    guid: 7c46ee4a35c4907499b09be2c9b6d37a
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5eeec16190ca709438ffd9874e40dd04, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: b92e731695bfb7742affff8372c2196a, type: 2}
