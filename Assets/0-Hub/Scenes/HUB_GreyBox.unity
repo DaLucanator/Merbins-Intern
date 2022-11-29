@@ -5427,11 +5427,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8408631186562692944, guid: befd6b5fecd3f5f4f81dc9ff226eee18, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.696
+      value: -0.567
       objectReference: {fileID: 0}
     - target: {fileID: 8408631186562692944, guid: befd6b5fecd3f5f4f81dc9ff226eee18, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.848
+      value: 1.005
       objectReference: {fileID: 0}
     - target: {fileID: 8408631186707132180, guid: befd6b5fecd3f5f4f81dc9ff226eee18, type: 3}
       propertyPath: m_RootOrder
@@ -13961,7 +13961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 3458418356078811932, guid: f8c608e10f7576b488f1448931f8be70, type: 3}
-  force: 500
+  forceCans: {x: 0, y: 500, z: 0}
   projectileRotation: {x: 0, y: 0, z: -90}
   instantiatePos: {fileID: 582257872}
   shootCan:
@@ -15767,8 +15767,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 3458418356078811932, guid: f8c608e10f7576b488f1448931f8be70, type: 3}
-  force: 500
-  projectileRotation: {x: 0, y: 0, z: -90}
+  forceCans: {x: 50, y: 50, z: 0}
+  projectileRotation: {x: 0, y: 90, z: -90}
   instantiatePos: {fileID: 582257872}
   shootCan:
     m_PersistentCalls:

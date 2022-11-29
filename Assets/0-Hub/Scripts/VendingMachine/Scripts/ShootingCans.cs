@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class ShootingCans : MonoBehaviour
 {
     public GameObject projectile;
-    public float force = 500;
+    public Vector3 forceCans;
     public Vector3 projectileRotation;
     public GameObject instantiatePos;
 
@@ -32,6 +32,6 @@ public class ShootingCans : MonoBehaviour
     {
         shootCan.Invoke();
         GameObject bullet = Instantiate(projectile, instantiatePos.transform.position, transform.rotation * Quaternion.Euler(projectileRotation));
-        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * force);
+        bullet.GetComponent<Rigidbody>().AddForce(forceCans);
     }
 }
