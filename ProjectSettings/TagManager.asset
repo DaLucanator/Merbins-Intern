@@ -17,6 +17,8 @@ TagManager:
   - CleaningManager
   - L2_PickupManager
   - Floor
+  - DestrucTrigger
+  - CurrentHold
   layers:
   - Default
   - TransparentFX
