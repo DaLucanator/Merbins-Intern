@@ -12,6 +12,8 @@ public class BaseDefenceGameController : MonoBehaviour
 
     [SerializeField] Transform[] portal1;
     [SerializeField] Transform[] portal2;
+    [SerializeField] Transform[] waypoints;
+
 
     public List<GameObject> allEnemies = new List<GameObject>();
 
@@ -61,6 +63,11 @@ public class BaseDefenceGameController : MonoBehaviour
             }
         }
         return tMin;
+    }
+
+    public Transform[] GetEnemyWaypoints()
+    {
+        return waypoints;
     }
 
     private IEnumerator LevelTimer()

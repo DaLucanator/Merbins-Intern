@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1-Base Defence/Scenes/Base Defence Final.unity
     guid: 58c9aaa5b0d1bf544a5d32c7841a9f55
+  - enabled: 1
+    path: Assets/4-Arena Room/Scenes/Arena 2.unity
+    guid: 80a3064f57fd48f42939ae8d65e08e9e
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5eeec16190ca709438ffd9874e40dd04, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: b92e731695bfb7742affff8372c2196a, type: 2}

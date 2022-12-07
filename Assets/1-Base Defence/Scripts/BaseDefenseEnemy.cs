@@ -22,12 +22,17 @@ public class BaseDefenseEnemy : MonoBehaviour
     [SerializeField] Transform[] protesterTransforms;
     [SerializeField] private int protesterNum;
 
+    [SerializeField] Transform[] waypoints;
+    private int waypointNum;
+
     private void Start()
     {
-        crystalLocation = GameObject.Find("Crystal Location").transform;
+        waypoints = BaseDefenceGameController.current.GetEnemyWaypoints();
+
+        waypointNum = Random.Range(0, 2);
+
         float randNum = Random.Range(-randomSpeedMod, randomSpeedMod);
         agent = gameObject.GetComponent<NavMeshAgent>();
-        agent.SetDestination(crystalLocation.position);
 
         float startSpeed = agent.speed;
         agent.speed += randNum;
@@ -35,7 +40,9 @@ public class BaseDefenseEnemy : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         animator.speed += animator.speed * (randNum/startSpeed);
 
-        if(isProtester)
+        agent.SetDestination(waypoints[waypointNum].position);
+
+        if (isProtester)
         {
             agent.SetDestination(protesterTransforms[protesterNum].position);
         }
@@ -56,6 +63,17 @@ public class BaseDefenseEnemy : MonoBehaviour
         if (GetComponent<Rigidbody>().isKinematic == false && isProtester)
         {
             BaseDefenceGameController.current.ActivateEnemyPortal();
+        }
+
+        if (GetComponent<Rigidbody>().isKinematic == true && !isProtester && waypointNum !=2 )
+        {
+            if (agent.remainingDistance < 0.1f)
+            {
+                if (waypointNum < 3) { waypointNum = Random.Range(2, 4); }
+                else { waypointNum = 4; }
+
+                agent.SetDestination(waypoints[waypointNum].position);
+            }
         }
     }
 

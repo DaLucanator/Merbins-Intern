@@ -14161,7 +14161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44e6023901bd8e41849e8ac69434a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Luc Test 2
+  levelName: Arena 2
   teleport: {fileID: 410145534}
 --- !u!65 &1622172238
 BoxCollider:
