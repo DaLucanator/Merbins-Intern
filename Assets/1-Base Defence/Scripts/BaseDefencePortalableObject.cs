@@ -14,6 +14,8 @@ public class BaseDefencePortalableObject : MonoBehaviour
     private BaseDefensePortal inPortal, outPortal;
     private bool canPortal = true;
 
+    [SerializeField] private AudioSource portalEnter;
+
     private static readonly Quaternion halfTurn = Quaternion.Euler(0f, 180f,180f)  ;
 
     protected virtual void Awake()
@@ -56,6 +58,8 @@ public class BaseDefencePortalableObject : MonoBehaviour
                 rb.velocity = (outTransform.TransformDirection(relativeVel)) * portalVelocityMultiplier;
 
                 canPortal = false;
+
+                portalEnter.Play();
             }
         }
 

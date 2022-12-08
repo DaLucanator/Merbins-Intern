@@ -9,6 +9,9 @@ public class PotionCombiner : MonoBehaviour
     [SerializeField] private Transform spawnPos;
     [SerializeField] private GameObject potion;
 
+    [SerializeField] private GameObject rightLight, leftLight;
+    [SerializeField] private Material redMat, greenMat;
+
     public void CreatePotion()
     {
         GameObject newPotionObject = Instantiate(potion, spawnPos.position, Quaternion.identity);
@@ -21,15 +24,32 @@ public class PotionCombiner : MonoBehaviour
 
         Destroy(potion1.gameObject);
         Destroy(potion2.gameObject);
+
+        Potion1Null();
+        Potion2Null();
     }
 
     public void SetPotion1 (BaseDefencePotion potion)
     {
         potion1 = potion;
+        rightLight.GetComponent<Renderer>().material = greenMat;
     }
 
     public void SetPotion2 (BaseDefencePotion potion)
     {
         potion2 = potion;
+        leftLight.GetComponent<Renderer>().material = greenMat;
+    }
+
+    public void Potion1Null()
+    {
+        rightLight.GetComponent<Renderer>().material = redMat;
+        potion1 = null;
+    }
+
+    public void Potion2Null()
+    {
+        leftLight.GetComponent<Renderer>().material = redMat;
+        potion2 = null;
     }
 }

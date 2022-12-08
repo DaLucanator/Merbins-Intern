@@ -8,6 +8,7 @@ public class BaseDefenceComputer : MonoBehaviour
     [SerializeField] private Transform potionSpawn;
     [SerializeField] private Color[] colors;
     [SerializeField] private GameObject screen;
+    [SerializeField] private Light light;
 
     private Material screenMat;
     private int potionNum;
@@ -22,6 +23,7 @@ public class BaseDefenceComputer : MonoBehaviour
         potionNum++;
         if(potionNum >= potions.Length) { potionNum = 0; }
         screenMat.color = colors[potionNum];
+        light.color = colors[potionNum];
     }
 
     public void LeftButton()
@@ -29,6 +31,7 @@ public class BaseDefenceComputer : MonoBehaviour
         potionNum--;
         if(potionNum < 0) { potionNum = potions.Length - 1; }
         screenMat.color = colors[potionNum];
+        light.color = colors[potionNum];
     }
 
     public void EnterButton()

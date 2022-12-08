@@ -11,6 +11,10 @@ public class BaseDefenseEnemy : MonoBehaviour
     [SerializeField] private float randomSpeedMod;
     [SerializeField] private Transform portalLocation, crystalLocation;
 
+    [SerializeField] AudioSource protesterChant;
+
+    [SerializeField] AudioSource[] flyingAudio;
+
     private NavMeshAgent agent;
 
     private Animator animator;
@@ -52,7 +56,7 @@ public class BaseDefenseEnemy : MonoBehaviour
     {
         if(GetComponent<Rigidbody>().isKinematic == true && isProtester)
         {
-            if(agent.remainingDistance < 0.1f)
+            if(agent.remainingDistance < 0.5f)
             {
                 protesterNum++;
                 if (protesterNum >= protesterTransforms.Length) { protesterNum = 0; }
@@ -63,13 +67,14 @@ public class BaseDefenseEnemy : MonoBehaviour
         if (GetComponent<Rigidbody>().isKinematic == false && isProtester)
         {
             BaseDefenceGameController.current.ActivateEnemyPortal();
+            protesterChant.Pause();
         }
 
-        if (GetComponent<Rigidbody>().isKinematic == true && !isProtester && waypointNum !=2 )
+        if (GetComponent<Rigidbody>().isKinematic == true && !isProtester && waypointNum !=4 )
         {
-            if (agent.remainingDistance < 0.1f)
+            if (agent.remainingDistance < 0.5f)
             {
-                if (waypointNum < 3) { waypointNum = Random.Range(2, 4); }
+                if (waypointNum <= 1) { waypointNum = Random.Range(2, 4); }
                 else { waypointNum = 4; }
 
                 agent.SetDestination(waypoints[waypointNum].position);
@@ -82,6 +87,10 @@ public class BaseDefenseEnemy : MonoBehaviour
         health -= damage;
 
         BaseDefenceGameController.current.allEnemies.Remove(gameObject);
+
+        int randInt = Random.Range(0, flyingAudio.Length);
+
+        flyingAudio[randInt].Play();
 
         StartCoroutine(DestroyMe());
     }

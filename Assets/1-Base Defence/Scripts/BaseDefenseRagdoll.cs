@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseDefenseRagdoll : MonoBehaviour
 {
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject[] enemy;
 
     [SerializeField] private float randomFlingForce, randomFlingTorque, randomFlingTorque2, getUpTimerMin, getUpTimerMax;
 
@@ -30,7 +30,7 @@ public class BaseDefenseRagdoll : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(getUpTimerMin,getUpTimerMax));
 
-        GameObject enemyObject = Instantiate(enemy, gameObject.transform.position, rotation);
+        GameObject enemyObject = Instantiate(enemy[Random.Range(0,enemy.Length)], gameObject.transform.position, rotation);
         BaseDefenceGameController.current.allEnemies.Add(enemyObject);
 
         Destroy(gameObject);

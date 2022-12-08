@@ -75,54 +75,24 @@ public class BaseDefenceGameController : MonoBehaviour
         yield return new WaitForSeconds(30f);
         ActivateEnemyPortal();
 
-        float spawnDelayBase = enemySpawner.GetSpawnDelayBase();
-
         //easy to start 5
+        yield return new WaitForSeconds(15f);
 
         //first wave 3
+        enemySpawner.SetSpawnDelay(5f);
+        yield return new WaitForSeconds(45f);
 
         //second wave 1
+        enemySpawner.SetSpawnDelay(1f);
+        yield return new WaitForSeconds(45f);
 
         //the finale 0.5
+        enemySpawner.SetSpawnDelay(0.5f);
+        yield return new WaitForSeconds(60f);
 
         //final outburts 0.1
-
-        yield return new WaitForSeconds(21f);
-        enemySpawner.ReduceSpawnDelay(spawnDelayBase / 4f);
-        spawnDelayBase = enemySpawner.GetSpawnDelayBase();
-
-        yield return new WaitForSeconds(21f);
-        enemySpawner.ReduceSpawnDelay(spawnDelayBase / 4f);
-        spawnDelayBase = enemySpawner.GetSpawnDelayBase();
-
-        yield return new WaitForSeconds(21f);
-        enemySpawner.ReduceSpawnDelay(spawnDelayBase / 4f);
-        spawnDelayBase = enemySpawner.GetSpawnDelayBase();
-
-        yield return new WaitForSeconds(21f);
-        enemySpawner.ReduceSpawnDelay(spawnDelayBase / 4f);
-        spawnDelayBase = enemySpawner.GetSpawnDelayBase();
-
-        yield return new WaitForSeconds(21f);
-        enemySpawner.ReduceSpawnDelay(spawnDelayBase / 3f);
-        spawnDelayBase = enemySpawner.GetSpawnDelayBase();
-
-        yield return new WaitForSeconds(21f);
-        enemySpawner.ReduceSpawnDelay(spawnDelayBase / 3f);
-        spawnDelayBase = enemySpawner.GetSpawnDelayBase();
-
-        yield return new WaitForSeconds(21f);
-        enemySpawner.ReduceSpawnDelay(spawnDelayBase / 3f);
-        spawnDelayBase = enemySpawner.GetSpawnDelayBase();
-
-        yield return new WaitForSeconds(21f);
-        enemySpawner.ReduceSpawnDelay(spawnDelayBase / 2f);
-        spawnDelayBase = enemySpawner.GetSpawnDelayBase();
-
-        yield return new WaitForSeconds(21f);
-        enemySpawner.ReduceSpawnDelay(spawnDelayBase / 1.5f);
-
-        yield return new WaitForSeconds(21f);
+        enemySpawner.SetSpawnDelay(0.1f);
+        yield return new WaitForSeconds(5f);
 
         DeActivateEnemyPortal();
     }

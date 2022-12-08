@@ -7,6 +7,7 @@ public class BaseDefenseEnemySpawner : MonoBehaviour
     [SerializeField] float spawnDelayBase;
     [SerializeField] GameObject enemyRagdoll;
     [SerializeField] Transform spawnPos;
+    [SerializeField] private AudioSource spawnSound;
 
     private float spawnDelayRandomMod;
 
@@ -31,12 +32,14 @@ public class BaseDefenseEnemySpawner : MonoBehaviour
 
         ragdoll.Fling();
 
+        spawnSound.Play();
+
         SpawnEnemy();
     }
 
-    public void ReduceSpawnDelay(float reduceAmount)
+    public void SetSpawnDelay(float amount)
     {
-        spawnDelayBase -= reduceAmount;
+        spawnDelayBase = amount;
         spawnDelayRandomMod = spawnDelayBase / 2f;
     }
 
