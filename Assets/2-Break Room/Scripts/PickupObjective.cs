@@ -83,7 +83,7 @@ public class PickupObjective : MonoBehaviour
     }
     private void OnTriggerStay(Collider collision)
     {
-        if (collision.CompareTag("Touch"))
+        if (collision.CompareTag("CurrentHold"))
         {
             inUse = 1;
             Debug.Log("REAL!");
