@@ -1181,6 +1181,9 @@ GameObject:
   - component: {fileID: 136935821}
   - component: {fileID: 136935823}
   - component: {fileID: 136935822}
+  - component: {fileID: 136935826}
+  - component: {fileID: 136935825}
+  - component: {fileID: 136935824}
   m_Layer: 0
   m_Name: TowerDefense (1)
   m_TagString: Untagged
@@ -1253,6 +1256,48 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136935820}
   m_Mesh: {fileID: 7375087399646436070, guid: 9fbe011148a3aa64da2cdd9e832042de, type: 3}
+--- !u!114 &136935824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136935820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b1c2b73552e3844e82a9c293910d80a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Arena 2
+--- !u!65 &136935825
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136935820}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.001977102, y: 0.009213223, z: 0.010000004}
+  m_Center: {x: 0.0040114503, y: -0.0012974918, z: -0.0000000044286157}
+--- !u!54 &136935826
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136935820}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &144502735 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7640161413527590453, guid: 6612a47d148a6934ab9f0545f689d4eb, type: 3}
