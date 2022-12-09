@@ -2305,6 +2305,11 @@ Transform:
   m_Father: {fileID: 330998023}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &137281845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1495341872947402, guid: 660bc4c6b1f4b024a8447ffe0af22720, type: 3}
+  m_PrefabInstance: {fileID: 1804330617}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &142217683
 GameObject:
   m_ObjectHideFlags: 0
@@ -10395,6 +10400,7 @@ MonoBehaviour:
   isFlickering: 0
   serverFixed: 0
   timeDelay: 0.4
+  serverShelf: {fileID: 137281845}
 --- !u!108 &784554620
 Light:
   m_ObjectHideFlags: 0
@@ -12650,6 +12656,7 @@ MonoBehaviour:
   isFlickering: 0
   serverFixed: 0
   timeDelay: 0.4
+  serverShelf: {fileID: 137281845}
 --- !u!108 &993446924
 Light:
   m_ObjectHideFlags: 0
@@ -25051,6 +25058,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23982333267387264, guid: 660bc4c6b1f4b024a8447ffe0af22720, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d08a61443859d747a9ec3b1d1b5116f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 660bc4c6b1f4b024a8447ffe0af22720, type: 3}
 --- !u!4 &1804330618 stripped
@@ -27367,6 +27378,10 @@ PrefabInstance:
     - target: {fileID: 203535219244161718, guid: 234ec075fc3d7b746a6ddcd109154538, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 203535219244161719, guid: 234ec075fc3d7b746a6ddcd109154538, type: 3}
+      propertyPath: timeToWait
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 234ec075fc3d7b746a6ddcd109154538, type: 3}

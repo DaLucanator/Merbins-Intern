@@ -13,7 +13,7 @@ public class KeyFeedback : MonoBehaviour
     private Color originalColor;
     private Renderer rn;
 
-    private float colorReturnTime = 0.1f;
+    private float colorReturnTime = 0.6f;
     private float returnColor;
 
     public TextMeshProUGUI display;

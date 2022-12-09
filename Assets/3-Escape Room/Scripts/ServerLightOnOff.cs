@@ -7,6 +7,7 @@ public class ServerLightOnOff : MonoBehaviour
     public bool isFlickering = false;
     public bool serverFixed = false;
     public float timeDelay = 0.1f;
+    public GameObject serverShelf;
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class ServerLightOnOff : MonoBehaviour
             StopCoroutine(FlickeringLight());
             this.gameObject.GetComponent<Light>().enabled = true;
             this.gameObject.GetComponent<Light>().color = Color.green;
+            serverShelf.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
         }
     }
 

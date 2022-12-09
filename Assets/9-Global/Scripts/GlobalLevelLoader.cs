@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GlobalLevelLoader : MonoBehaviour
 {
     [SerializeField] private float timeToWait;
-    [SerializeField] private GameObject portalObject;
+    //[SerializeField] private GameObject portalObject;
 
     public void LoadLevel(string levelToLoad)
     {
@@ -23,8 +23,8 @@ public class GlobalLevelLoader : MonoBehaviour
         SceneManager.LoadScene(levelToLoad);
     }
 
-    void PortalEffect()
+    /*void PortalEffect()
     {
         Instantiate(portalObject);
-    }
+    }*/
 }

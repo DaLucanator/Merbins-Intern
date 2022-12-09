@@ -7,6 +7,7 @@ public class ShootingCans : MonoBehaviour
     public Vector3 forceCans;
     public Vector3 projectileRotation;
     public GameObject instantiatePos;
+    
 
     public UnityEvent shootCan;
 
@@ -30,7 +31,10 @@ public class ShootingCans : MonoBehaviour
 
     public void InstantiateProjectile()
     {
+        
         shootCan.Invoke();
+        
+        
         GameObject bullet = Instantiate(projectile, instantiatePos.transform.position, transform.rotation * Quaternion.Euler(projectileRotation));
         bullet.GetComponent<Rigidbody>().AddForce(forceCans);
     }
